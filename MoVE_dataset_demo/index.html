@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoVE Dataset — Demo Page</title>
+  <meta name="description"
+    content="Demo page for the MoVE Dataset: a large-scale expressive bilingual (Chinese–English) speech-to-speech translation dataset with 5 vocalization categories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-card: #f8f9fa;
+      --bg-card-hover: #f0f1f3;
+      --text-primary: #1a1a2e;
+      --text-secondary: #555770;
+      --text-muted: #8e90a6;
+      --border: #e2e4e9;
+      --accent: #4a5568;
+      --angry: #c0392b;
+      --happy: #d4a017;
+      --sad: #5b6abf;
+      --laugh: #27ae60;
+      --crying: #b565a7;
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      padding: 80px 20px 60px;
+      text-align: center;
+      overflow: hidden;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      display: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      background: none;
+      -webkit-text-fill-color: unset;
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--text-secondary);
+      margin-top: 14px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .hero .badge-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Section ── */
+    section {
+      padding: 52px 0;
+    }
+
+    section+section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    /* ── Overview ── */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .overview-card:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .overview-card .value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .overview-card .label {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 4px;
+    }
+
+    /* ── Tree ── */
+    .tree-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 1.9;
+      color: var(--text-secondary);
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .tree-block .comment {
+      color: var(--text-muted);
+    }
+
+    .tree-block .dir {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .tree-block .file {
+      color: var(--text-primary);
+    }
+
+    /* ── Category tabs ── */
+    .cat-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .cat-tab {
+      padding: 7px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .cat-tab:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .cat-tab.active {
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .cat-tab[data-cat="angry"].active {
+      background: var(--angry);
+    }
+
+    .cat-tab[data-cat="happy"].active {
+      background: var(--happy);
+    }
+
+    .cat-tab[data-cat="sad"].active {
+      background: var(--sad);
+    }
+
+    .cat-tab[data-cat="laugh"].active {
+      background: var(--laugh);
+    }
+
+    .cat-tab[data-cat="crying"].active {
+      background: var(--crying);
+    }
+
+    /* ── Sample cards ── */
+    .samples-container {
+      display: none;
+    }
+
+    .samples-container.active {
+      display: block;
+    }
+
+    .sample-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 14px;
+      transition: background 0.2s;
+    }
+
+    .sample-card:hover {
+      background: var(--bg-secondary);
+    }
+
+    .sample-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .sample-idx {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .sample-card[data-cat="angry"] .sample-idx {
+      background: var(--angry);
+    }
+
+    .sample-card[data-cat="happy"] .sample-idx {
+      background: var(--happy);
+    }
+
+    .sample-card[data-cat="sad"] .sample-idx {
+      background: var(--sad);
+    }
+
+    .sample-card[data-cat="laugh"] .sample-idx {
+      background: var(--laugh);
+    }
+
+    .sample-card[data-cat="crying"] .sample-idx {
+      background: var(--crying);
+    }
+
+    .sample-pair-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media(max-width:640px) {
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .audio-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .waveform-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .play-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .play-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+
+    .waveform-container {
+      flex: 1;
+      min-width: 0;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+    }
+
+    .audio-text {
+      margin-top: 8px;
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: 1.5;
+      min-height: 1.5em;
+    }
+
+    /* ── Info box ── */
+    .info-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .info-box .icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-box p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .info-box strong {
+      color: var(--text-primary);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    /* ── Details list ── */
+    .details-list {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .details-list li {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .details-list li:last-child {
+      border-bottom: none;
+    }
+
+    .details-list li strong {
+      color: var(--text-primary);
+    }
+
+    .details-list li .em-icon {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav style="padding: 16px 24px; border-bottom: 1px solid var(--border);">
+    <a href="../" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to Home
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <h1>MoVE Dataset</h1>
+    <p class="subtitle">
+      A large-scale bilingual (Chinese ↔ English) expressive speech-to-speech translation dataset spanning
+      <strong>~1,000 hours</strong> and <strong>~900k parallel pairs</strong>, presented in our paper:<br />
+      <em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in
+        Speech-to-Speech Translation</em>
+    </p>
+    <div class="badge-row">
+      <span class="badge">🎙️ ~1,000 Hours</span>
+      <span class="badge">🔢 ~900k Pairs</span>
+      <span class="badge">🌏 Chinese ↔ English</span>
+      <span class="badge">🎭 5 Emotions</span>
+      <span class="badge">📝 Parallel Text</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Overview -->
+    <section>
+      <h2 class="section-title">Dataset Overview</h2>
+      <p class="section-desc">
+        The <strong>MoVE Dataset</strong> is a large-scale expressive speech-to-speech translation (S2ST) dataset
+        designed to advance research in emotion-preserving cross-lingual speech synthesis. Each sample consists of a
+        <strong>parallel Chinese–English audio pair</strong> produced with matching expressiveness, accompanied by the
+        corresponding transcription text.
+      </p>
+
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="value">~1,000</div>
+          <div class="label">Total Hours</div>
+        </div>
+        <div class="overview-card">
+          <div class="value">~900k</div>
+          <div class="label">Parallel Pairs</div>
+        </div>
+        <div class="overview-card">
+          <div class="value">5 (Balanced)</div>
+          <div class="label">Emotion Categories</div>
+        </div>
+        <div class="overview-card">
+          <div class="value">2</div>
+          <div class="label">Languages (ZH / EN)</div>
+        </div>
+      </div>
+
+      <ul class="details-list" style="margin-top:28px;">
+        <li><span class="em-icon">😠</span> <strong>Angry</strong> — speech delivered with frustration, annoyance, or
+          intensity</li>
+        <li><span class="em-icon">😊</span> <strong>Happy</strong> — cheerful, upbeat, joyful speech</li>
+        <li><span class="em-icon">😢</span> <strong>Sad</strong> — melancholic, sorrowful, or subdued speech</li>
+        <li><span class="em-icon">😂</span> <strong>Laugh</strong> — speech containing laughter or spoken in an amused
+          manner</li>
+        <li><span class="em-icon">😭</span> <strong>Crying</strong> — speech with a weeping, sobbing, or distressed
+          quality</li>
+      </ul>
+    </section>
+
+    <!-- Dataset Structure -->
+    <section>
+      <h2 class="section-title">Dataset Structure</h2>
+      <p class="section-desc">
+        The released dataset follows the directory structure below. Each audio pair shares the same identifier across
+        languages.
+      </p>
+      <div class="tree-block"><span class="dir">1000hr/</span>
+        ├── <span class="file">metadata.tsv</span> <span class="comment"># zh_path en_path zh_text en_text
+          category</span>
+        ├── <span class="dir">en/</span>
+        │ ├── <span class="dir">angry/</span>
+        │ ├── <span class="dir">happy/</span>
+        │ ├── <span class="dir">sad/</span>
+        │ ├── <span class="dir">laugh/</span>
+        │ └── <span class="dir">crying/</span>
+        └── <span class="dir">zh/</span>
+        ├── <span class="dir">angry/</span>
+        ├── <span class="dir">happy/</span>
+        ├── <span class="dir">sad/</span>
+        ├── <span class="dir">laugh/</span>
+        └── <span class="dir">crying/</span></div>
+
+      <p style="margin-top:16px; color: var(--text-muted); font-size: 0.85rem;">
+        <strong>metadata.tsv</strong> contains tab-separated columns:
+        <code
+          style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">zh_path</code>
+        <code
+          style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">en_path</code>
+        <code
+          style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">zh_text</code>
+        <code
+          style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">en_text</code>
+        <code
+          style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">category</code>
+      </p>
+    </section>
+
+    <!-- Audio Demos -->
+    <section>
+      <h2 class="section-title">Audio Demos</h2>
+      <p class="section-desc">
+        Below are randomly sampled audio pairs from each expressiveness category. Each sample shows the Chinese and
+        English audio along with available transcription text.
+      </p>
+
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" data-cat="angry">😠 Angry</button>
+        <button class="cat-tab" data-cat="happy">😊 Happy</button>
+        <button class="cat-tab" data-cat="sad">😢 Sad</button>
+        <button class="cat-tab" data-cat="laugh">😂 Laugh</button>
+        <button class="cat-tab" data-cat="crying">😭 Crying</button>
+      </div>
+
+      <div id="samplesPanels"></div>
+    </section>
+
+    <!-- Data Release -->
+    <section>
+      <div class="info-box">
+        <span class="icon">📦</span>
+        <div>
+          <p>
+            <strong>Data Availability.</strong> The full dataset (~1,000 hours) will be publicly released upon the
+            camera-ready version of our paper. A download link will be provided at that time. Stay tuned!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation -->
+    <section>
+      <h2 class="section-title">Citation</h2>
+      <p class="section-desc">If you use this dataset in your research, please cite our paper:</p>
+      <div class="tree-block" style="font-size:0.8rem;line-height:1.7;">@article{anonymous2026move,
+        title = {MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech
+        Translation},
+        author = {Anonymous},
+        journal = {Under Review},
+        year = {2026}
+        }</div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>MoVE Dataset — Anonymous Submission · 2026</p>
+  </footer>
+
+  <script type="module">
+    import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
+
+    const CAT_COLORS = {
+      angry: '#c0392b',
+      happy: '#d4a017',
+      sad: '#5b6abf',
+      laugh: '#27ae60',
+      crying: '#b565a7',
+    };
+
+    // Track all wavesurfer instances for exclusive playback
+    const allInstances = [];
+
+    function createWavesurfer(containerId, audioUrl, cat) {
+      const ws = WaveSurfer.create({
+        container: '#' + containerId,
+        height: 48,
+        waveColor: '#ccc',
+        progressColor: CAT_COLORS[cat] || '#4a5568',
+        cursorColor: 'transparent',
+        barWidth: 2,
+        barGap: 1.5,
+        barRadius: 2,
+        url: audioUrl,
+      });
+      allInstances.push(ws);
+
+      // Pause all other instances when this one plays
+      ws.on('play', () => {
+        allInstances.forEach(other => {
+          if (other !== ws && other.isPlaying()) other.pause();
+        });
+      });
+
+      return ws;
+    }
+
+    // ── Load samples and render ──
+    fetch('samples.json')
+      .then(r => r.json())
+      .then(samples => {
+        const categories = ['angry', 'happy', 'sad', 'laugh', 'crying'];
+        const panels = document.getElementById('samplesPanels');
+        const pendingWaveforms = []; // { containerId, audioUrl, cat, el }
+
+        categories.forEach(cat => {
+          const catSamples = samples.filter(s => s.category === cat);
+          const container = document.createElement('div');
+          container.className = 'samples-container' + (cat === 'angry' ? ' active' : '');
+          container.dataset.cat = cat;
+
+          catSamples.forEach((sample, idx) => {
+            const card = document.createElement('div');
+            card.className = 'sample-card';
+            card.dataset.cat = cat;
+
+            const zhText = sample.zh_text || '—';
+            const enText = sample.en_text || '—';
+            const zhId = `ws-zh-${cat}-${idx}`;
+            const enId = `ws-en-${cat}-${idx}`;
+
+            card.innerHTML = `
+              <div class="sample-header">
+                <span class="sample-idx">${idx + 1}</span>
+                <span class="sample-pair-id">${sample.pair_id.replace(/^test_/, '')}</span>
+              </div>
+              <div class="audio-row">
+                <div class="audio-block">
+                  <div class="audio-label">Chinese</div>
+                  <div class="waveform-wrapper">
+                    <button class="play-btn" data-target="${zhId}">▶</button>
+                    <div class="waveform-container" id="${zhId}"></div>
+                  </div>
+                  <div class="audio-text">${zhText}</div>
+                </div>
+                <div class="audio-block">
+                  <div class="audio-label">English</div>
+                  <div class="waveform-wrapper">
+                    <button class="play-btn" data-target="${enId}">▶</button>
+                    <div class="waveform-container" id="${enId}"></div>
+                  </div>
+                  <div class="audio-text">${enText}</div>
+                </div>
+              </div>
+            `;
+            container.appendChild(card);
+
+            pendingWaveforms.push({ containerId: zhId, audioUrl: sample.zh_audio, cat, el: null });
+            pendingWaveforms.push({ containerId: enId, audioUrl: sample.en_audio, cat, el: null });
+          });
+
+          panels.appendChild(container);
+        });
+
+        // Map of containerId -> wavesurfer instance
+        const wsMap = new Map();
+
+        // Lazy-init waveforms that are in the active tab
+        function initVisibleWaveforms() {
+          const activeContainer = document.querySelector('.samples-container.active');
+          if (!activeContainer) return;
+          pendingWaveforms.forEach(item => {
+            if (wsMap.has(item.containerId)) return;
+            const el = document.getElementById(item.containerId);
+            if (!el || !activeContainer.contains(el)) return;
+            const ws = createWavesurfer(item.containerId, item.audioUrl, item.cat);
+            wsMap.set(item.containerId, ws);
+
+            // Update play button icon
+            const btn = el.closest('.waveform-wrapper').querySelector('.play-btn');
+            ws.on('play', () => btn.textContent = '⏸');
+            ws.on('pause', () => btn.textContent = '▶');
+            ws.on('finish', () => btn.textContent = '▶');
+          });
+        }
+
+        // Init first tab's waveforms
+        initVisibleWaveforms();
+
+        // Play/pause button handler
+        document.getElementById('samplesPanels').addEventListener('click', e => {
+          const btn = e.target.closest('.play-btn');
+          if (!btn) return;
+          const targetId = btn.dataset.target;
+          const ws = wsMap.get(targetId);
+          if (ws) ws.playPause();
+        });
+
+        // Tab switching
+        document.getElementById('catTabs').addEventListener('click', e => {
+          const tab = e.target.closest('.cat-tab');
+          if (!tab) return;
+          const cat = tab.dataset.cat;
+
+          document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          document.querySelectorAll('.samples-container').forEach(c => c.classList.remove('active'));
+          document.querySelector(`.samples-container[data-cat="${cat}"]`).classList.add('active');
+
+          // Init waveforms for newly visible tab
+          requestAnimationFrame(() => initVisibleWaveforms());
+        });
+      });
+  </script>
+
+</body>
+
+</html>

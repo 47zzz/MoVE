@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>S2ST Evaluation Platform - Model Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    .back-nav {
+      padding: 16px 24px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .back-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .back-nav a:hover {
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back navigation -->
+  <nav class="back-nav">
+    <a href="../">&larr; Back to Home</a>
+  </nav>
+
+  <!-- Background Effects -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="22"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Speech to Speech Translation</h1>
+          <p class="subtitle">Emotion-Preserving S2ST Model Comparison</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="emotion-nav" id="emotion-nav">
+          <!-- Emotion tabs will be injected here -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <div id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading dataset...</p>
+      </div>
+
+      <div id="error-state" class="error-state" style="display: none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>Failed to load data. Please check that data files are available.</p>
+      </div>
+
+      <div id="content-area" class="content-area">
+        <!-- Sets for the selected emotion will be injected here -->
+      </div>
+
+    </main>
+  </div>
+
+  <script src="static/demo.js"></script>
+</body>
+</html>
