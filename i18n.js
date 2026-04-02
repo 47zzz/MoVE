@@ -223,18 +223,18 @@
         display: flex;
         border-radius: 999px;
         overflow: hidden;
-        border: 1px solid rgba(128,128,128,0.3);
-        background: rgba(20,20,30,0.7);
+        border: 1px solid #e2e4e9;
+        background: rgba(255,255,255,0.9);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         font-family: 'Inter', -apple-system, sans-serif;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+        box-shadow: 0 1px 6px rgba(0,0,0,0.08);
       }
       .i18n-toggle button {
         padding: 6px 14px;
         border: none;
         background: transparent;
-        color: rgba(255,255,255,0.45);
+        color: #8e90a6;
         font-size: 0.8rem;
         font-weight: 600;
         cursor: pointer;
@@ -242,26 +242,11 @@
         font-family: inherit;
       }
       .i18n-toggle button.active {
-        background: rgba(99,102,241,0.85);
+        background: #4f46e5;
         color: #fff;
       }
       .i18n-toggle button:hover:not(.active) {
-        color: rgba(255,255,255,0.7);
-      }
-      /* Light theme override */
-      body[data-theme="light"] .i18n-toggle,
-      .light-theme .i18n-toggle {
-        background: rgba(255,255,255,0.85);
-        border-color: rgba(0,0,0,0.1);
-      }
-      body[data-theme="light"] .i18n-toggle button,
-      .light-theme .i18n-toggle button {
-        color: rgba(0,0,0,0.35);
-      }
-      body[data-theme="light"] .i18n-toggle button.active,
-      .light-theme .i18n-toggle button.active {
-        background: rgba(99,102,241,0.9);
-        color: #fff;
+        color: #1a1a2e;
       }
     `;
     document.head.appendChild(style);
