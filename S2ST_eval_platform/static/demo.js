@@ -109,8 +109,9 @@ function renderSets(sets) {
     
     const header = document.createElement('div');
     header.className = 'set-header';
+    const setLabel = window.i18n?.t('eval.set') || 'Set:';
     header.innerHTML = `
-      <div class="set-title">Set: ${set.set.replace('set_', '')}</div>
+      <div class="set-title">${setLabel} ${set.set.replace('set_', '')}</div>
       <div class="set-badge">${set.emotion}</div>
     `;
     card.appendChild(header);
@@ -166,7 +167,7 @@ function createPlayerElement(label, url, isSource = false, rawName = '') {
     <div class="player-info">
       <div class="player-label" style="${!isSource ? 'color: var(--text-muted);' : ''}">
         ${iconHtml}
-        ${isSource ? 'Source' : 'Model'}
+        ${isSource ? (window.i18n?.t('eval.source') || 'Source') : (window.i18n?.t('eval.model') || 'Model')}
       </div>
       <div class="model-name" title="${label}">${label}</div>
     </div>

@@ -510,102 +510,102 @@
     <header class="hero">
       <div class="hero-badge">Interspeech 2026</div>
       <h1>MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in S2ST</h1>
-      <p class="subtitle">
+      <p class="subtitle" data-i18n="hero.subtitle">
         A Mixture-of-LoRA-Experts framework that preserves non-verbal vocalizations
         (laughter, crying, etc.) in speech-to-speech translation with remarkable data efficiency.
       </p>
-      <p class="authors">Anonymous Submission</p>
+      <p class="authors" data-i18n="hero.authors">Anonymous Submission</p>
 
       <div class="btn-row">
         <a class="btn btn-primary" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-          Paper (Coming Soon)
+          <span data-i18n="btn.paper">Paper (Coming Soon)</span>
         </a>
         <a class="btn btn-outline" href="MoVE_dataset_demo/">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Dataset
+          <span data-i18n="btn.dataset">Dataset</span>
         </a>
         <a class="btn btn-outline" href="S2ST_eval_platform/">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          Model Demo
+          <span data-i18n="btn.demo">Model Demo</span>
         </a>
       </div>
 
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-value">76%</div>
-          <div class="stat-label">NV Preservation</div>
+          <div class="stat-label" data-i18n="stat.nv">NV Preservation</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">~1K hr</div>
-          <div class="stat-label">Dataset Scale</div>
+          <div class="stat-label" data-i18n="stat.dataset">Dataset Scale</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">30 min</div>
-          <div class="stat-label">Min. Fine-tune Data</div>
+          <div class="stat-label" data-i18n="stat.finetune">Min. Fine-tune Data</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">7</div>
-          <div class="stat-label">Models Compared</div>
+          <div class="stat-label" data-i18n="stat.models">Models Compared</div>
         </div>
       </div>
     </header>
 
     <!-- Interactive Demos -->
     <section>
-      <div class="section-label">Interactive Demos</div>
-      <h2 class="section-title">Explore Our Work</h2>
-      <p class="section-desc">
+      <div class="section-label" data-i18n="demos.label">Interactive Demos</div>
+      <h2 class="section-title" data-i18n="demos.title">Explore Our Work</h2>
+      <p class="section-desc" data-i18n="demos.desc">
         Listen to our dataset samples and compare model outputs across different emotion categories.
       </p>
 
       <div class="demo-grid">
         <a class="demo-card" href="MoVE_dataset_demo/">
           <div class="demo-card-icon dataset">&#127911;</div>
-          <h3>MoVE Dataset</h3>
-          <p>
+          <h3 data-i18n="card.dataset.title">MoVE Dataset</h3>
+          <p data-i18n="card.dataset.desc">
             Browse ~1,000 hours of bilingual (Chinese &harr; English) expressive speech pairs across 5 emotion
             categories with interactive waveform visualization.
           </p>
-          <span class="arrow">Explore Dataset &rarr;</span>
+          <span class="arrow" data-i18n="card.dataset.arrow">Explore Dataset &rarr;</span>
         </a>
 
         <a class="demo-card" href="S2ST_eval_platform/">
           <div class="demo-card-icon eval">&#127925;</div>
-          <h3>S2ST Evaluation Platform</h3>
-          <p>
+          <h3 data-i18n="card.eval.title">S2ST Evaluation Platform</h3>
+          <p data-i18n="card.eval.desc">
             Compare 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion
             categories with audio playback.
           </p>
-          <span class="arrow">Compare Models &rarr;</span>
+          <span class="arrow" data-i18n="card.eval.arrow">Compare Models &rarr;</span>
         </a>
       </div>
     </section>
 
     <!-- Method Overview -->
     <section>
-      <div class="section-label">Method</div>
-      <h2 class="section-title">Our Approach</h2>
-      <p class="section-desc">
+      <div class="section-label" data-i18n="method.label">Method</div>
+      <h2 class="section-title" data-i18n="method.title">Our Approach</h2>
+      <p class="section-desc" data-i18n="method.desc">
         MoVE tackles the expressiveness gap in S2ST through three key contributions.
       </p>
 
       <div class="arch-section">
-        <h3>MoVE Architecture</h3>
+        <h3 data-i18n="arch.title">MoVE Architecture</h3>
         <div class="arch-grid">
           <div class="arch-item">
-            <h4>Scalable Data Pipeline</h4>
-            <p>An automated generation-selection pipeline that creates high-quality expressive S2ST training data,
+            <h4 data-i18n="arch.data.title">Scalable Data Pipeline</h4>
+            <p data-i18n="arch.data.desc">An automated generation-selection pipeline that creates high-quality expressive S2ST training data,
               producing a ~1,000-hour bilingual corpus with 5 balanced emotion categories.</p>
           </div>
           <div class="arch-item">
-            <h4>Mixture of LoRA Experts</h4>
-            <p>Five specialized vocalization adapters (Angry, Happy, Sad, Laugh, Crying) with a learned soft-weighting
+            <h4 data-i18n="arch.moe.title">Mixture of LoRA Experts</h4>
+            <p data-i18n="arch.moe.desc">Five specialized vocalization adapters (Angry, Happy, Sad, Laugh, Crying) with a learned soft-weighting
               router that dynamically blends experts for hybrid expressive states.</p>
           </div>
           <div class="arch-item">
-            <h4>AudioLLM Fine-tuning</h4>
-            <p>First to fine-tune general-purpose AudioLLMs for end-to-end S2ST, demonstrating that as little as 30
+            <h4 data-i18n="arch.llm.title">AudioLLM Fine-tuning</h4>
+            <p data-i18n="arch.llm.desc">First to fine-tune general-purpose AudioLLMs for end-to-end S2ST, demonstrating that as little as 30
               minutes of curated data achieves 95% of full-data emotional fidelity.</p>
           </div>
         </div>
@@ -614,36 +614,36 @@
 
     <!-- Key Results -->
     <section>
-      <div class="section-label">Results</div>
-      <h2 class="section-title">Key Findings</h2>
-      <p class="section-desc">
+      <div class="section-label" data-i18n="results.label">Results</div>
+      <h2 class="section-title" data-i18n="results.title">Key Findings</h2>
+      <p class="section-desc" data-i18n="results.desc">
         MoVE achieves state-of-the-art performance on emotion-preserving English&ndash;Chinese S2ST.
       </p>
 
       <div class="results-grid">
         <div class="result-card">
           <div class="metric">76%</div>
-          <div class="metric-label">NV Reproduction Rate</div>
-          <div class="metric-desc">vs. &le;14% for existing S2ST systems</div>
+          <div class="metric-label" data-i18n="result.nv.label">NV Reproduction Rate</div>
+          <div class="metric-desc" data-i18n="result.nv.desc">vs. &le;14% for existing S2ST systems</div>
         </div>
         <div class="result-card">
           <div class="metric">#1</div>
-          <div class="metric-label">Human Naturalness</div>
-          <div class="metric-desc">Highest rated among all compared systems</div>
+          <div class="metric-label" data-i18n="result.nat.label">Human Naturalness</div>
+          <div class="metric-desc" data-i18n="result.nat.desc">Highest rated among all compared systems</div>
         </div>
         <div class="result-card">
           <div class="metric">95%</div>
-          <div class="metric-label">Data Efficiency</div>
-          <div class="metric-desc">of full-data fidelity with just 30 min data</div>
+          <div class="metric-label" data-i18n="result.eff.label">Data Efficiency</div>
+          <div class="metric-desc" data-i18n="result.eff.desc">of full-data fidelity with just 30 min data</div>
         </div>
       </div>
     </section>
 
     <!-- Citation -->
     <section>
-      <div class="section-label">Citation</div>
-      <h2 class="section-title">Cite Our Work</h2>
-      <p class="section-desc">If you find our work useful, please consider citing:</p>
+      <div class="section-label" data-i18n="cite.label">Citation</div>
+      <h2 class="section-title" data-i18n="cite.title">Cite Our Work</h2>
+      <p class="section-desc" data-i18n="cite.desc">If you find our work useful, please consider citing:</p>
 
       <div class="citation-block" id="citation">@article{anonymous2026move,
   title   = {MoVE: Translating Laughter and Tears via Mixture
@@ -658,10 +658,11 @@
 
   <footer>
     <div class="container">
-      <p>MoVE &mdash; Anonymous Submission &middot; Interspeech 2026</p>
+      <p data-i18n="footer.text">MoVE &mdash; Anonymous Submission &middot; Interspeech 2026</p>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script>
     function copyBib() {
       const bib = document.getElementById('citation').textContent.replace('Copy', '').trim();

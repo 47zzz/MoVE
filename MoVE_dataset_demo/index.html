@@ -447,14 +447,14 @@
   <!-- Nav -->
   <nav style="padding: 16px 24px; border-bottom: 1px solid var(--border);">
     <a href="../" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
-      &larr; Back to Home
+      <span data-i18n="nav.back">&larr; Back to Home</span>
     </a>
   </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <h1>MoVE Dataset</h1>
-    <p class="subtitle">
+    <h1 data-i18n="ds.title">MoVE Dataset</h1>
+    <p class="subtitle" data-i18n-html="ds.subtitle">
       A large-scale bilingual (Chinese ↔ English) expressive speech-to-speech translation dataset spanning
       <strong>~1,000 hours</strong> and <strong>~900k parallel pairs</strong>, presented in our paper:<br />
       <em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in
@@ -473,8 +473,8 @@
 
     <!-- Overview -->
     <section>
-      <h2 class="section-title">Dataset Overview</h2>
-      <p class="section-desc">
+      <h2 class="section-title" data-i18n="ds.overview.title">Dataset Overview</h2>
+      <p class="section-desc" data-i18n-html="ds.overview.desc">
         The <strong>MoVE Dataset</strong> is a large-scale expressive speech-to-speech translation (S2ST) dataset
         designed to advance research in emotion-preserving cross-lingual speech synthesis. Each sample consists of a
         <strong>parallel Chinese–English audio pair</strong> produced with matching expressiveness, accompanied by the
@@ -484,38 +484,38 @@
       <div class="overview-grid">
         <div class="overview-card">
           <div class="value">~1,000</div>
-          <div class="label">Total Hours</div>
+          <div class="label" data-i18n="ds.stat.hours">Total Hours</div>
         </div>
         <div class="overview-card">
           <div class="value">~900k</div>
-          <div class="label">Parallel Pairs</div>
+          <div class="label" data-i18n="ds.stat.pairs">Parallel Pairs</div>
         </div>
         <div class="overview-card">
           <div class="value">5 (Balanced)</div>
-          <div class="label">Emotion Categories</div>
+          <div class="label" data-i18n="ds.stat.emo">Emotion Categories</div>
         </div>
         <div class="overview-card">
           <div class="value">2</div>
-          <div class="label">Languages (ZH / EN)</div>
+          <div class="label" data-i18n="ds.stat.lang">Languages (ZH / EN)</div>
         </div>
       </div>
 
       <ul class="details-list" style="margin-top:28px;">
-        <li><span class="em-icon">😠</span> <strong>Angry</strong> — speech delivered with frustration, annoyance, or
-          intensity</li>
-        <li><span class="em-icon">😊</span> <strong>Happy</strong> — cheerful, upbeat, joyful speech</li>
-        <li><span class="em-icon">😢</span> <strong>Sad</strong> — melancholic, sorrowful, or subdued speech</li>
-        <li><span class="em-icon">😂</span> <strong>Laugh</strong> — speech containing laughter or spoken in an amused
-          manner</li>
-        <li><span class="em-icon">😭</span> <strong>Crying</strong> — speech with a weeping, sobbing, or distressed
-          quality</li>
+        <li><span class="em-icon">😠</span> <span data-i18n-html="ds.angry"><strong>Angry</strong> — speech delivered with frustration, annoyance, or
+          intensity</span></li>
+        <li><span class="em-icon">😊</span> <span data-i18n-html="ds.happy"><strong>Happy</strong> — cheerful, upbeat, joyful speech</span></li>
+        <li><span class="em-icon">😢</span> <span data-i18n-html="ds.sad"><strong>Sad</strong> — melancholic, sorrowful, or subdued speech</span></li>
+        <li><span class="em-icon">😂</span> <span data-i18n-html="ds.laugh"><strong>Laugh</strong> — speech containing laughter or spoken in an amused
+          manner</span></li>
+        <li><span class="em-icon">😭</span> <span data-i18n-html="ds.crying"><strong>Crying</strong> — speech with a weeping, sobbing, or distressed
+          quality</span></li>
       </ul>
     </section>
 
     <!-- Dataset Structure -->
     <section>
-      <h2 class="section-title">Dataset Structure</h2>
-      <p class="section-desc">
+      <h2 class="section-title" data-i18n="ds.structure.title">Dataset Structure</h2>
+      <p class="section-desc" data-i18n="ds.structure.desc">
         The released dataset follows the directory structure below. Each audio pair shares the same identifier across
         languages.
       </p>
@@ -535,7 +535,7 @@
         ├── <span class="dir">laugh/</span>
         └── <span class="dir">crying/</span></div>
 
-      <p style="margin-top:16px; color: var(--text-muted); font-size: 0.85rem;">
+      <p style="margin-top:16px; color: var(--text-muted); font-size: 0.85rem;" data-i18n-html="ds.meta.desc">
         <strong>metadata.tsv</strong> contains tab-separated columns:
         <code
           style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:4px;padding:2px 6px;font-size:0.82rem;">zh_path</code>
@@ -552,8 +552,8 @@
 
     <!-- Audio Demos -->
     <section>
-      <h2 class="section-title">Audio Demos</h2>
-      <p class="section-desc">
+      <h2 class="section-title" data-i18n="ds.demos.title">Audio Demos</h2>
+      <p class="section-desc" data-i18n="ds.demos.desc">
         Below are randomly sampled audio pairs from each expressiveness category. Each sample shows the Chinese and
         English audio along with available transcription text.
       </p>
@@ -574,7 +574,7 @@
       <div class="info-box">
         <span class="icon">📦</span>
         <div>
-          <p>
+          <p data-i18n-html="ds.release.text">
             <strong>Data Availability.</strong> The full dataset (~1,000 hours) will be publicly released upon the
             camera-ready version of our paper. A download link will be provided at that time. Stay tuned!
           </p>
@@ -584,8 +584,8 @@
 
     <!-- Citation -->
     <section>
-      <h2 class="section-title">Citation</h2>
-      <p class="section-desc">If you use this dataset in your research, please cite our paper:</p>
+      <h2 class="section-title" data-i18n="ds.cite.title">Citation</h2>
+      <p class="section-desc" data-i18n="ds.cite.desc">If you use this dataset in your research, please cite our paper:</p>
       <div class="tree-block" style="font-size:0.8rem;line-height:1.7;">@article{anonymous2026move,
         title = {MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech
         Translation},
@@ -598,9 +598,14 @@
   </main>
 
   <footer>
-    <p>MoVE Dataset — Anonymous Submission · 2026</p>
+    <p data-i18n="ds.footer">MoVE Dataset — Anonymous Submission · 2026</p>
   </footer>
 
+  <script src="../i18n.js"></script>
+  <script>
+    // Mark as light theme for i18n toggle styling
+    document.body.classList.add('light-theme');
+  </script>
   <script type="module">
     import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js';
 
@@ -663,6 +668,8 @@
             const zhId = `ws-zh-${cat}-${idx}`;
             const enId = `ws-en-${cat}-${idx}`;
 
+            const zhLabel = window.i18n?.t('ds.audio.zh') || 'Chinese';
+            const enLabel = window.i18n?.t('ds.audio.en') || 'English';
             card.innerHTML = `
               <div class="sample-header">
                 <span class="sample-idx">${idx + 1}</span>
@@ -670,7 +677,7 @@
               </div>
               <div class="audio-row">
                 <div class="audio-block">
-                  <div class="audio-label">Chinese</div>
+                  <div class="audio-label" data-i18n="ds.audio.zh">${zhLabel}</div>
                   <div class="waveform-wrapper">
                     <button class="play-btn" data-target="${zhId}">▶</button>
                     <div class="waveform-container" id="${zhId}"></div>
@@ -678,7 +685,7 @@
                   <div class="audio-text">${zhText}</div>
                 </div>
                 <div class="audio-block">
-                  <div class="audio-label">English</div>
+                  <div class="audio-label" data-i18n="ds.audio.en">${enLabel}</div>
                   <div class="waveform-wrapper">
                     <button class="play-btn" data-target="${enId}">▶</button>
                     <div class="waveform-container" id="${enId}"></div>

@@ -33,8 +33,9 @@
 <body>
 
   <!-- Back navigation -->
+  <script src="../i18n.js"></script>
   <nav class="back-nav">
-    <a href="../">&larr; Back to Home</a>
+    <a href="../"><span data-i18n="nav.back">&larr; Back to Home</span></a>
   </nav>
 
   <!-- Background Effects -->
@@ -55,8 +56,8 @@
           </svg>
         </div>
         <div>
-          <h1>Speech to Speech Translation</h1>
-          <p class="subtitle">Emotion-Preserving S2ST Model Comparison</p>
+          <h1 data-i18n="eval.title">Speech to Speech Translation</h1>
+          <p class="subtitle" data-i18n="eval.subtitle">Emotion-Preserving S2ST Model Comparison</p>
         </div>
       </div>
 
@@ -72,12 +73,12 @@
 
       <div id="loading" class="loading-state">
         <div class="spinner"></div>
-        <p>Loading dataset...</p>
+        <p data-i18n="eval.loading">Loading dataset...</p>
       </div>
 
       <div id="error-state" class="error-state" style="display: none;">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <p>Failed to load data. Please check that data files are available.</p>
+        <p data-i18n="eval.error">Failed to load data. Please check that data files are available.</p>
       </div>
 
       <div id="content-area" class="content-area">
