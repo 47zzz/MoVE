@@ -13,360 +13,276 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --bg-card: #f8f9fa;
-      --bg-card-hover: #f0f1f3;
-      --text-primary: #1a1a2e;
-      --text-secondary: #555770;
-      --text-muted: #8e90a6;
-      --border: #e2e4e9;
-      --border-hover: #d0d2d9;
+      --bg: #ffffff;
+      --bg-alt: #f7f8fa;
+      --text: #1d1d2c;
+      --text-2: #4a4b65;
+      --text-3: #8b8da3;
+      --border: #e5e7eb;
       --accent: #4f46e5;
-      --accent-glow: rgba(79, 70, 229, 0.12);
+      --accent-light: #ede9fe;
+      --accent-dark: #3730a3;
       --green: #059669;
-      --green-glow: rgba(5, 150, 105, 0.1);
-      --radius: 14px;
-      --radius-sm: 8px;
+      --green-light: #ecfdf5;
+      --radius: 12px;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
-    .bg-glow { display: none; }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 28px; }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Hero */
+    /* ─── Hero ─── */
     .hero {
-      padding: 100px 0 60px;
+      padding: 96px 0 72px;
       text-align: center;
+      border-bottom: 1px solid var(--border);
     }
 
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
+      display: inline-block;
+      padding: 5px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      background: var(--accent-glow);
+      background: var(--accent-light);
       color: var(--accent);
-      border: 1px solid var(--border);
-      margin-bottom: 24px;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      color: var(--text-primary);
-      max-width: 800px;
+      letter-spacing: -0.035em;
+      line-height: 1.25;
+      color: var(--text);
+      max-width: 720px;
       margin: 0 auto;
     }
 
     .hero .subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
+      font-size: 1rem;
+      color: var(--text-2);
       margin-top: 20px;
-      max-width: 640px;
+      max-width: 580px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.8;
+      line-height: 1.75;
     }
 
     .hero .authors {
-      margin-top: 16px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      margin-top: 14px;
+      color: var(--text-3);
+      font-size: 0.88rem;
     }
 
-    /* Buttons row */
+    /* Buttons */
     .btn-row {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 36px;
+      margin-top: 32px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      border-radius: 999px;
-      font-size: 0.92rem;
+      gap: 7px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 0.88rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.2s;
       border: 1px solid transparent;
       cursor: pointer;
       font-family: inherit;
     }
 
+    .btn svg { width: 16px; height: 16px; }
+
     .btn-primary {
       background: var(--accent);
       color: #fff;
     }
-
     .btn-primary:hover {
-      background: #4338ca;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px var(--accent-glow);
+      background: var(--accent-dark);
     }
 
     .btn-outline {
-      background: transparent;
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--text);
       border-color: var(--border);
     }
-
     .btn-outline:hover {
-      background: var(--bg-card);
-      border-color: var(--border-hover);
-      transform: translateY(-1px);
+      background: var(--bg-alt);
+      border-color: #d0d2d9;
     }
 
-    .btn svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    /* Stats row */
+    /* Stats */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 60px;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 52px;
     }
 
     @media (max-width: 640px) {
-      .stats-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
 
     .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
+      background: var(--bg);
+      padding: 28px 20px;
       text-align: center;
-      transition: all 0.25s ease;
-    }
-
-    .stat-card:hover {
-      border-color: var(--border-hover);
     }
 
     .stat-value {
-      font-size: 2rem;
+      font-size: 1.7rem;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--text);
+      letter-spacing: -0.02em;
     }
 
     .stat-label {
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      margin-top: 6px;
+      color: var(--text-3);
+      font-size: 0.78rem;
+      margin-top: 4px;
       font-weight: 500;
     }
 
-    /* Sections */
-    section {
-      padding: 60px 0;
-    }
+    /* ─── Sections ─── */
+    section { padding: 64px 0; }
+
+    .section-alt { background: var(--bg-alt); }
 
     .section-label {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+      color: var(--text);
     }
 
     .section-desc {
-      color: var(--text-secondary);
-      max-width: 640px;
+      color: var(--text-2);
+      max-width: 560px;
       margin-bottom: 32px;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      line-height: 1.7;
     }
 
     /* Demo cards */
     .demo-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
-
-    @media (max-width: 640px) {
-      .demo-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 640px) { .demo-grid { grid-template-columns: 1fr; } }
 
     .demo-card {
-      background: var(--bg-card);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 32px;
-      transition: all 0.3s ease;
+      padding: 28px;
       text-decoration: none;
       color: inherit;
       display: block;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .demo-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.3s;
+      transition: all 0.2s;
     }
 
     .demo-card:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .demo-card:hover::before {
-      opacity: 1;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent), 0 4px 16px rgba(79,70,229,0.06);
     }
 
     .demo-card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
     }
-
-    .demo-card-icon.dataset {
-      background: rgba(5, 150, 105, 0.08);
-      border: 1px solid var(--border);
-    }
-
-    .demo-card-icon.eval {
-      background: var(--accent-glow);
-      border: 1px solid var(--border);
-    }
+    .demo-card-icon.dataset { background: var(--green-light); }
+    .demo-card-icon.eval { background: var(--accent-light); }
 
     .demo-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 8px;
     }
 
     .demo-card p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+      color: var(--text-2);
+      font-size: 0.88rem;
       line-height: 1.6;
     }
 
     .demo-card .arrow {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-size: 0.85rem;
+      gap: 4px;
+      margin-top: 14px;
+      font-size: 0.84rem;
       font-weight: 600;
       color: var(--accent);
       transition: gap 0.2s;
     }
-
-    .demo-card:hover .arrow {
-      gap: 10px;
-    }
+    .demo-card:hover .arrow { gap: 8px; }
 
     /* Architecture */
-    .arch-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px;
-      margin-top: 32px;
-    }
-
-    .arch-section h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
     .arch-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 16px;
+      margin-top: 8px;
     }
-
-    @media (max-width: 640px) {
-      .arch-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 640px) { .arch-grid { grid-template-columns: 1fr; } }
 
     .arch-item {
-      padding: 20px;
-      background: var(--bg-primary);
-      border-radius: var(--radius-sm);
+      padding: 24px;
+      background: var(--bg);
+      border-radius: var(--radius);
       border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
     }
 
     .arch-item h4 {
-      font-size: 0.92rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 700;
       margin-bottom: 8px;
-      color: var(--text-primary);
     }
 
     .arch-item p {
       font-size: 0.84rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      color: var(--text-2);
+      line-height: 1.65;
     }
 
     /* Results */
@@ -374,51 +290,47 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin-top: 24px;
     }
-
-    @media (max-width: 640px) {
-      .results-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 640px) { .results-grid { grid-template-columns: 1fr; } }
 
     .result-card {
-      background: var(--bg-card);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 28px 20px;
       text-align: center;
     }
 
     .result-card .metric {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 800;
       color: var(--accent);
+      letter-spacing: -0.03em;
     }
 
     .result-card .metric-label {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-top: 4px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 6px;
     }
 
     .result-card .metric-desc {
       font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 8px;
+      color: var(--text-3);
+      margin-top: 4px;
     }
 
     /* Citation */
     .citation-block {
-      background: var(--bg-secondary);
+      background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 24px 28px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.8rem;
       line-height: 1.8;
-      color: var(--text-secondary);
+      color: var(--text-2);
       overflow-x: auto;
       white-space: pre;
       position: relative;
@@ -428,51 +340,33 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: var(--bg-card);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      padding: 5px 12px;
+      font-size: 0.74rem;
+      color: var(--text-3);
       cursor: pointer;
       font-family: 'Inter', sans-serif;
+      font-weight: 500;
       transition: all 0.2s;
     }
-
-    .copy-btn:hover {
-      background: var(--bg-card-hover);
-      color: var(--text-primary);
-    }
+    .copy-btn:hover { color: var(--text); border-color: #d0d2d9; }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--border);
-      padding: 40px 0;
+      padding: 36px 0;
       text-align: center;
-      color: var(--text-muted);
+      color: var(--text-3);
       font-size: 0.8rem;
-    }
-
-    footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: var(--text-primary);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Background -->
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
-
   <div class="container">
-
-    <!-- Hero -->
     <header class="hero">
       <div class="hero-badge">Interspeech 2026</div>
       <h1>MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in S2ST</h1>
@@ -484,7 +378,7 @@
 
       <div class="btn-row">
         <a class="btn btn-primary" href="#">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="btn.paper">Paper (Coming Soon)</span>
         </a>
         <a class="btn btn-outline" href="MoVE_dataset_demo/">
@@ -492,7 +386,7 @@
           <span data-i18n="btn.dataset">Dataset</span>
         </a>
         <a class="btn btn-outline" href="S2ST_eval_platform/">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           <span data-i18n="btn.demo">Model Demo</span>
         </a>
       </div>
@@ -516,101 +410,105 @@
         </div>
       </div>
     </header>
+  </div>
 
-    <!-- Interactive Demos -->
-    <section>
-      <div class="section-label" data-i18n="demos.label">Interactive Demos</div>
-      <h2 class="section-title" data-i18n="demos.title">Explore Our Work</h2>
-      <p class="section-desc" data-i18n="demos.desc">
-        Listen to our dataset samples and compare model outputs across different emotion categories.
-      </p>
+  <!-- Demos -->
+  <div class="section-alt">
+    <div class="container">
+      <section>
+        <div class="section-label" data-i18n="demos.label">Interactive Demos</div>
+        <h2 class="section-title" data-i18n="demos.title">Explore Our Work</h2>
+        <p class="section-desc" data-i18n="demos.desc">
+          Listen to our dataset samples and compare model outputs across different emotion categories.
+        </p>
+        <div class="demo-grid">
+          <a class="demo-card" href="MoVE_dataset_demo/">
+            <div class="demo-card-icon dataset">&#127911;</div>
+            <h3 data-i18n="card.dataset.title">MoVE Dataset</h3>
+            <p data-i18n="card.dataset.desc">
+              Browse ~1,000 hours of bilingual (Chinese &harr; English) expressive speech pairs across 5 emotion
+              categories with interactive waveform visualization.
+            </p>
+            <span class="arrow" data-i18n="card.dataset.arrow">Explore Dataset &rarr;</span>
+          </a>
+          <a class="demo-card" href="S2ST_eval_platform/">
+            <div class="demo-card-icon eval">&#127925;</div>
+            <h3 data-i18n="card.eval.title">S2ST Evaluation Platform</h3>
+            <p data-i18n="card.eval.desc">
+              Compare 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion
+              categories with audio playback.
+            </p>
+            <span class="arrow" data-i18n="card.eval.arrow">Compare Models &rarr;</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
 
-      <div class="demo-grid">
-        <a class="demo-card" href="MoVE_dataset_demo/">
-          <div class="demo-card-icon dataset">&#127911;</div>
-          <h3 data-i18n="card.dataset.title">MoVE Dataset</h3>
-          <p data-i18n="card.dataset.desc">
-            Browse ~1,000 hours of bilingual (Chinese &harr; English) expressive speech pairs across 5 emotion
-            categories with interactive waveform visualization.
-          </p>
-          <span class="arrow" data-i18n="card.dataset.arrow">Explore Dataset &rarr;</span>
-        </a>
-
-        <a class="demo-card" href="S2ST_eval_platform/">
-          <div class="demo-card-icon eval">&#127925;</div>
-          <h3 data-i18n="card.eval.title">S2ST Evaluation Platform</h3>
-          <p data-i18n="card.eval.desc">
-            Compare 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion
-            categories with audio playback.
-          </p>
-          <span class="arrow" data-i18n="card.eval.arrow">Compare Models &rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Method Overview -->
+  <!-- Method -->
+  <div class="container">
     <section>
       <div class="section-label" data-i18n="method.label">Method</div>
       <h2 class="section-title" data-i18n="method.title">Our Approach</h2>
       <p class="section-desc" data-i18n="method.desc">
         MoVE tackles the expressiveness gap in S2ST through three key contributions.
       </p>
-
-      <div class="arch-section">
-        <h3 data-i18n="arch.title">MoVE Architecture</h3>
-        <div class="arch-grid">
-          <div class="arch-item">
-            <h4 data-i18n="arch.data.title">Scalable Data Pipeline</h4>
-            <p data-i18n="arch.data.desc">An automated generation-selection pipeline that creates high-quality expressive S2ST training data,
-              producing a ~1,000-hour bilingual corpus with 5 balanced emotion categories.</p>
-          </div>
-          <div class="arch-item">
-            <h4 data-i18n="arch.moe.title">Mixture of LoRA Experts</h4>
-            <p data-i18n="arch.moe.desc">Five specialized vocalization adapters (Angry, Happy, Sad, Laugh, Crying) with a learned soft-weighting
-              router that dynamically blends experts for hybrid expressive states.</p>
-          </div>
-          <div class="arch-item">
-            <h4 data-i18n="arch.llm.title">AudioLLM Fine-tuning</h4>
-            <p data-i18n="arch.llm.desc">First to fine-tune general-purpose AudioLLMs for end-to-end S2ST, demonstrating that as little as 30
-              minutes of curated data achieves 95% of full-data emotional fidelity.</p>
-          </div>
+      <div class="arch-grid">
+        <div class="arch-item">
+          <h4 data-i18n="arch.data.title">Scalable Data Pipeline</h4>
+          <p data-i18n="arch.data.desc">An automated generation-selection pipeline that creates high-quality expressive S2ST training data,
+            producing a ~1,000-hour bilingual corpus with 5 balanced emotion categories.</p>
+        </div>
+        <div class="arch-item">
+          <h4 data-i18n="arch.moe.title">Mixture of LoRA Experts</h4>
+          <p data-i18n="arch.moe.desc">Five specialized vocalization adapters (Angry, Happy, Sad, Laugh, Crying) with a learned soft-weighting
+            router that dynamically blends experts for hybrid expressive states.</p>
+        </div>
+        <div class="arch-item">
+          <h4 data-i18n="arch.llm.title">AudioLLM Fine-tuning</h4>
+          <p data-i18n="arch.llm.desc">First to fine-tune general-purpose AudioLLMs for end-to-end S2ST, demonstrating that as little as 30
+            minutes of curated data achieves 95% of full-data emotional fidelity.</p>
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- Key Results -->
-    <section>
-      <div class="section-label" data-i18n="results.label">Results</div>
-      <h2 class="section-title" data-i18n="results.title">Key Findings</h2>
-      <p class="section-desc" data-i18n="results.desc">
-        MoVE achieves state-of-the-art performance on emotion-preserving English&ndash;Chinese S2ST.
-      </p>
+  <!-- Results -->
+  <div class="section-alt">
+    <div class="container">
+      <section>
+        <div class="section-label" data-i18n="results.label">Results</div>
+        <h2 class="section-title" data-i18n="results.title">Key Findings</h2>
+        <p class="section-desc" data-i18n="results.desc">
+          MoVE achieves state-of-the-art performance on emotion-preserving English&ndash;Chinese S2ST.
+        </p>
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="metric">76%</div>
+            <div class="metric-label" data-i18n="result.nv.label">NV Reproduction Rate</div>
+            <div class="metric-desc" data-i18n="result.nv.desc">vs. &le;14% for existing S2ST systems</div>
+          </div>
+          <div class="result-card">
+            <div class="metric">#1</div>
+            <div class="metric-label" data-i18n="result.nat.label">Human Naturalness</div>
+            <div class="metric-desc" data-i18n="result.nat.desc">Highest rated among all compared systems</div>
+          </div>
+          <div class="result-card">
+            <div class="metric">95%</div>
+            <div class="metric-label" data-i18n="result.eff.label">Data Efficiency</div>
+            <div class="metric-desc" data-i18n="result.eff.desc">of full-data fidelity with just 30 min data</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
-      <div class="results-grid">
-        <div class="result-card">
-          <div class="metric">76%</div>
-          <div class="metric-label" data-i18n="result.nv.label">NV Reproduction Rate</div>
-          <div class="metric-desc" data-i18n="result.nv.desc">vs. &le;14% for existing S2ST systems</div>
-        </div>
-        <div class="result-card">
-          <div class="metric">#1</div>
-          <div class="metric-label" data-i18n="result.nat.label">Human Naturalness</div>
-          <div class="metric-desc" data-i18n="result.nat.desc">Highest rated among all compared systems</div>
-        </div>
-        <div class="result-card">
-          <div class="metric">95%</div>
-          <div class="metric-label" data-i18n="result.eff.label">Data Efficiency</div>
-          <div class="metric-desc" data-i18n="result.eff.desc">of full-data fidelity with just 30 min data</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Citation -->
+  <!-- Citation -->
+  <div class="container">
     <section>
       <div class="section-label" data-i18n="cite.label">Citation</div>
       <h2 class="section-title" data-i18n="cite.title">Cite Our Work</h2>
       <p class="section-desc" data-i18n="cite.desc">If you find our work useful, please consider citing:</p>
-
       <div class="citation-block" id="citation">@article{anonymous2026move,
   title   = {MoVE: Translating Laughter and Tears via Mixture
              of Vocalization Experts in Speech-to-Speech Translation},
@@ -619,7 +517,6 @@
   year    = {2026}
 }<button class="copy-btn" onclick="copyBib()">Copy</button></div>
     </section>
-
   </div>
 
   <footer>

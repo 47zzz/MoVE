@@ -23,21 +23,21 @@
 
     :root {
       --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --bg-card: #f8f9fa;
-      --bg-card-hover: #f0f1f3;
-      --text-primary: #1a1a2e;
-      --text-secondary: #555770;
-      --text-muted: #8e90a6;
-      --border: #e2e4e9;
-      --accent: #4a5568;
-      --angry: #c0392b;
-      --happy: #d4a017;
-      --sad: #5b6abf;
-      --laugh: #27ae60;
-      --crying: #b565a7;
-      --radius: 10px;
-      --radius-sm: 6px;
+      --bg-secondary: #f7f8fa;
+      --bg-card: #f7f8fa;
+      --bg-card-hover: #f0f1f4;
+      --text-primary: #1d1d2c;
+      --text-secondary: #4a4b65;
+      --text-muted: #8b8da3;
+      --border: #e5e7eb;
+      --accent: #4f46e5;
+      --angry: #dc2626;
+      --happy: #ca8a04;
+      --sad: #4f46e5;
+      --laugh: #059669;
+      --crying: #a855f7;
+      --radius: 12px;
+      --radius-sm: 8px;
     }
 
     body {
@@ -50,55 +50,45 @@
 
     /* ── Hero ── */
     .hero {
-      position: relative;
-      padding: 80px 20px 60px;
+      padding: 72px 20px 56px;
       text-align: center;
-      overflow: hidden;
-      background: var(--bg-primary);
       border-bottom: 1px solid var(--border);
     }
 
-    .hero::before {
-      display: none;
-    }
-
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.4rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.035em;
       color: var(--text-primary);
-      background: none;
-      -webkit-text-fill-color: unset;
-      position: relative;
+      line-height: 1.25;
     }
 
     .hero .subtitle {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      margin-top: 14px;
-      max-width: 680px;
+      margin-top: 16px;
+      max-width: 620px;
       margin-left: auto;
       margin-right: auto;
-      position: relative;
+      line-height: 1.75;
     }
 
     .hero .badge-row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 24px;
-      position: relative;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 500;
+      gap: 5px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
       border: 1px solid var(--border);
       background: var(--bg-secondary);
       color: var(--text-secondary);
@@ -106,14 +96,14 @@
 
     /* ── Container ── */
     .container {
-      max-width: 960px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 28px;
     }
 
     /* ── Section ── */
     section {
-      padding: 52px 0;
+      padding: 56px 0;
     }
 
     section+section {
@@ -121,50 +111,55 @@
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      letter-spacing: -0.025em;
       color: var(--text-primary);
     }
 
     .section-desc {
       color: var(--text-secondary);
       margin-bottom: 28px;
-      max-width: 720px;
+      max-width: 600px;
+      font-size: 0.92rem;
+      line-height: 1.7;
     }
 
     /* ── Overview ── */
     .overview-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      margin-top: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .overview-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     .overview-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
+      background: var(--bg-primary);
+      padding: 24px 16px;
       text-align: center;
-      transition: background 0.2s;
-    }
-
-    .overview-card:hover {
-      background: var(--bg-card-hover);
     }
 
     .overview-card .value {
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 800;
       color: var(--text-primary);
+      letter-spacing: -0.02em;
     }
 
     .overview-card .label {
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       margin-top: 4px;
+      font-weight: 500;
     }
 
     /* ── Tree ── */
@@ -186,7 +181,7 @@
     }
 
     .tree-block .dir {
-      color: var(--accent);
+      color: #4f46e5;
       font-weight: 600;
     }
 
@@ -204,14 +199,14 @@
 
     .cat-tab {
       padding: 7px 18px;
-      border-radius: 999px;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--bg-primary);
       color: var(--text-secondary);
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 0.84rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.15s;
       font-family: inherit;
     }
 
@@ -341,30 +336,30 @@
     }
 
     .play-btn {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
+      border: none;
+      background: var(--accent);
+      color: #fff;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 0.8rem;
-      transition: background 0.15s, color 0.15s;
+      font-size: 0.75rem;
+      transition: all 0.15s;
     }
 
     .play-btn:hover {
-      background: var(--bg-card-hover);
-      color: var(--text-primary);
+      background: #4338ca;
+      transform: scale(1.05);
     }
 
     .waveform-container {
       flex: 1;
       min-width: 0;
-      height: 48px;
+      height: 44px;
       border-radius: var(--radius-sm);
       overflow: hidden;
       background: var(--bg-secondary);
@@ -445,8 +440,8 @@
 <body>
 
   <!-- Nav -->
-  <nav style="padding: 16px 24px; border-bottom: 1px solid var(--border);">
-    <a href="../" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+  <nav style="padding: 14px 28px; border-bottom: 1px solid var(--border);">
+    <a href="../" style="color: var(--text-muted); text-decoration: none; font-size: 0.84rem; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; transition: color 0.15s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">
       <span data-i18n="nav.back">&larr; Back to Home</span>
     </a>
   </nav>

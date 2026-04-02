@@ -217,28 +217,28 @@
     style.textContent = `
       .i18n-toggle {
         position: fixed;
-        top: 16px;
-        right: 16px;
+        top: 14px;
+        right: 14px;
         z-index: 9999;
         display: flex;
-        border-radius: 999px;
+        border-radius: 8px;
         overflow: hidden;
-        border: 1px solid #e2e4e9;
-        background: rgba(255,255,255,0.9);
+        border: 1px solid #e5e7eb;
+        background: rgba(255,255,255,0.92);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         font-family: 'Inter', -apple-system, sans-serif;
-        box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       }
       .i18n-toggle button {
-        padding: 6px 14px;
+        padding: 5px 12px;
         border: none;
         background: transparent;
-        color: #8e90a6;
-        font-size: 0.8rem;
+        color: #8b8da3;
+        font-size: 0.76rem;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.15s;
         font-family: inherit;
       }
       .i18n-toggle button.active {
@@ -246,7 +246,8 @@
         color: #fff;
       }
       .i18n-toggle button:hover:not(.active) {
-        color: #1a1a2e;
+        color: #1d1d2c;
+        background: rgba(0,0,0,0.03);
       }
     `;
     document.head.appendChild(style);
