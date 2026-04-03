@@ -53,10 +53,10 @@
       zh: '瀏覽約 1,000 小時的雙語（中英）表達性語音對，涵蓋 5 種情緒類別，附互動波形視覺化。'
     },
     'card.dataset.arrow': { en: 'Explore Dataset \u2192', zh: '探索資料集 \u2192' },
-    'card.eval.title': { en: 'S2ST Evaluation Platform', zh: 'S2ST 評估平台' },
+    'card.eval.title': { en: 'Model Comparison', zh: '模型效果比較' },
     'card.eval.desc': {
-      en: 'Compare 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion categories with audio playback.',
-      zh: '並排比較 7 個 S2ST 模型：OpenAI、SeamlessM4T、Kimi 和我們的 MoVE，涵蓋 6 種情緒類別的音訊播放。'
+      en: 'Listen and compare speech outputs from 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion categories.',
+      zh: '聆聽並比較 7 個 S2ST 模型的語音輸出：OpenAI、SeamlessM4T、Kimi 和我們的 MoVE，涵蓋 6 種情緒類別。'
     },
     'card.eval.arrow': { en: 'Compare Models \u2192', zh: '比較模型 \u2192' },
 
@@ -166,14 +166,16 @@
     'ds.cite.desc': { en: 'If you use this dataset in your research, please cite our paper:', zh: '如果您在研究中使用此資料集，請引用我們的論文：' },
     'ds.footer': { en: 'MoVE Dataset \u2014 Anonymous Submission \u00b7 2026', zh: 'MoVE 資料集 \u2014 匿名投稿 \u00b7 2026' },
 
-    // ─── Eval Platform ─────────────────────────────────────────
-    'eval.title': { en: 'Speech to Speech Translation', zh: '語音到語音翻譯' },
-    'eval.subtitle': { en: 'Emotion-Preserving S2ST Model Comparison', zh: '保留情感的 S2ST 模型比較' },
-    'eval.loading': { en: 'Loading dataset...', zh: '載入資料集中...' },
-    'eval.error': { en: 'Failed to load data. Please check that data files are available.', zh: '載入資料失敗。請確認資料檔案可用。' },
-    'eval.source': { en: 'Source', zh: '原始音訊' },
-    'eval.model': { en: 'Model', zh: '模型' },
-    'eval.set': { en: 'Set:', zh: '組別：' },
+    // ─── Model Comparison ────────────────────────────────────────
+    'mc.title': { en: 'Model Comparison', zh: '模型效果比較' },
+    'mc.desc': {
+      en: 'Listen and compare speech outputs from 7 different S2ST models across various emotion categories. Each group shows the source audio and corresponding translations.',
+      zh: '聆聽並比較 7 個不同 S2ST 模型在各種情緒類別下的語音輸出。每組展示原始音訊及對應的翻譯結果。'
+    },
+    'mc.loading': { en: 'Loading audio samples...', zh: '載入音訊樣本中...' },
+    'mc.source': { en: 'Source', zh: '原始音訊' },
+    'mc.model': { en: 'Model', zh: '模型' },
+    'mc.sample': { en: 'Sample', zh: '樣本' },
   };
 
   // ── State ──

@@ -14,12 +14,14 @@ venv/
 *.pdf
 
 # Dev / server files
-S2ST_eval_platform/server.py
-S2ST_eval_platform/requirements.txt
-S2ST_eval_platform/generate_manifest.py
-S2ST_eval_platform/config.json
-S2ST_eval_platform/saved/
-S2ST_eval_platform/static/app.js
-S2ST_eval_platform/static/config.json
-S2ST_eval_platform/static/demo.html
+model_comparison/server.py
+model_comparison/requirements.txt
+model_comparison/generate_manifest.py
+model_comparison/config.json
+model_comparison/saved/
+model_comparison/static/app.js
+model_comparison/static/config.json
+model_comparison/static/demo.html
+model_comparison/static/demo.js
+model_comparison/static/style.css
 MoVE_dataset_demo/sample_demo.py

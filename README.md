@@ -14,31 +14,28 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 
 ## Demo
 
-**[Live Demo Page](https://anonymous.4open.science/w/MoVE-Dataset-3EBE/)**
+The demo includes two interactive pages:
 
-The demo includes two interactive components:
-
-| Demo | Description |
+| Page | Description |
 |------|-------------|
 | [MoVE Dataset](MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
-| [S2ST Eval Platform](S2ST_eval_platform/) | Compare 7 S2ST models (OpenAI, SeamlessM4T, Kimi, Cascaded, MoE, MoVE, Expressive) side-by-side |
+| [Model Comparison](model_comparison/) | Listen and compare 7 S2ST models (OpenAI, SeamlessM4T, Kimi, Cascaded, MoE, MoVE, Expressive) side-by-side |
 
 ## Project Structure
 
 ```
 .
 ├── index.html                  # Landing page
-├── MoVE_dataset_demo/          # Dataset demo (static)
+├── i18n.js                     # EN/ZH language toggle
+├── MoVE_dataset_demo/          # Dataset demo
 │   ├── index.html
 │   ├── samples.json
-│   └── audio/                  # EN/ZH audio samples by emotion
-├── S2ST_eval_platform/         # Model comparison platform (static)
+│   └── audio/
+├── model_comparison/           # Model comparison demo
 │   ├── index.html
 │   ├── static/
-│   │   ├── demo.js
-│   │   ├── style.css
 │   │   └── data_manifest.json
-│   └── data/                   # Model outputs by emotion/set
+│   └── data/
 │       ├── Angry/
 │       ├── Happy/
 │       ├── Sad/
@@ -63,11 +60,11 @@ No backend server is required.
 | Model | Type |
 |-------|------|
 | **MoVE (Ours)** | Mixture-of-LoRA-Experts on AudioLLM |
-| MoE (Top 5 Attention) | Mixture of Experts baseline |
+| MoE (Top-5) | Mixture of Experts baseline |
 | Cascaded | Traditional ASR + MT + TTS pipeline |
 | OpenAI | GPT-4o S2ST |
 | SeamlessM4T | Meta's multilingual translation |
-| Kimi Instruct | Kimi Audio instruction-following |
+| Kimi | Kimi Audio instruction-following |
 | Expressive | Expressive speech baseline |
 
 ## Citation
