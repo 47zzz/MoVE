@@ -14,12 +14,12 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 
 ## Demo
 
-The demo includes two interactive pages:
+**[Live Demo](https://47zzz.github.io/MoVE/)**
 
 | Page | Description |
 |------|-------------|
-| [MoVE Dataset](MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
-| [Model Comparison](model_comparison/) | Listen and compare 7 S2ST models (OpenAI, SeamlessM4T, Kimi, Cascaded, MoE, MoVE, Expressive) side-by-side |
+| [MoVE Dataset](https://47zzz.github.io/MoVE/MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
+| [Model Comparison](https://47zzz.github.io/MoVE/model_comparison/) | Listen and compare 6 S2ST models (MoVE, OpenAI, SeamlessM4T, Kimi, Cascaded, Expressive) side-by-side |
 
 ## Project Structure
 
@@ -60,11 +60,10 @@ No backend server is required.
 | Model | Type |
 |-------|------|
 | **MoVE (Ours)** | Mixture-of-LoRA-Experts on AudioLLM |
-| MoE (Top-5) | Mixture of Experts baseline |
-| Cascaded | Traditional ASR + MT + TTS pipeline |
 | OpenAI | GPT-4o S2ST |
 | SeamlessM4T | Meta's multilingual translation |
 | Kimi | Kimi Audio instruction-following |
+| Cascaded | Traditional ASR + MT + TTS pipeline |
 | Expressive | Expressive speech baseline |
 
 ## Citation
