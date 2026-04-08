@@ -55,8 +55,8 @@
     'card.dataset.arrow': { en: 'Explore Dataset \u2192', zh: '探索資料集 \u2192' },
     'card.eval.title': { en: 'Model Comparison', zh: '模型效果比較' },
     'card.eval.desc': {
-      en: 'Listen and compare speech outputs from 7 S2ST models side-by-side: OpenAI, SeamlessM4T, Kimi, and our MoVE across 6 emotion categories.',
-      zh: '聆聽並比較 7 個 S2ST 模型的語音輸出：OpenAI、SeamlessM4T、Kimi 和我們的 MoVE，涵蓋 6 種情緒類別。'
+      en: 'Listen and compare speech outputs from 8 S2ST models side-by-side: MoVE (Ours), Kimi variants, gpt-4o-audio-preview, SeamlessExpressive, SeamlessM4T-Large-v2, and Cascaded.',
+      zh: '聆聽並比較 8 個 S2ST 模型的語音輸出：MoVE（我們的）、Kimi 變體、gpt-4o-audio-preview、SeamlessExpressive、SeamlessM4T-Large-v2 與 Cascaded。'
     },
     'card.eval.arrow': { en: 'Compare Models \u2192', zh: '比較模型 \u2192' },
 
@@ -169,8 +169,8 @@
     // ─── Model Comparison ────────────────────────────────────────
     'mc.title': { en: 'Model Comparison', zh: '模型效果比較' },
     'mc.desc': {
-      en: 'Listen and compare speech outputs from 7 different S2ST models across various emotion categories. Each group shows the source audio and corresponding translations.',
-      zh: '聆聽並比較 7 個不同 S2ST 模型在各種情緒類別下的語音輸出。每組展示原始音訊及對應的翻譯結果。'
+      en: 'Listen and compare speech outputs from different S2ST models across various emotion categories. Each row shows the same source utterance translated by each model.',
+      zh: '聆聽並比較不同 S2ST 模型在各種情緒類別下的語音輸出。每一列展示同一段原始語音經由各模型翻譯的結果。'
     },
     'mc.loading': { en: 'Loading audio samples...', zh: '載入音訊樣本中...' },
     'mc.source': { en: 'Source', zh: '原始音訊' },

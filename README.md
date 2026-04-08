@@ -19,7 +19,7 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 | Page | Description |
 |------|-------------|
 | [MoVE Dataset](https://47zzz.github.io/MoVE/MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
-| [Model Comparison](https://47zzz.github.io/MoVE/model_comparison/) | Listen and compare 6 S2ST models (MoVE, OpenAI, SeamlessM4T, Kimi, Cascaded, Expressive) side-by-side |
+| [Model Comparison](https://47zzz.github.io/MoVE/model_comparison/) | Listen and compare 8 S2ST models side-by-side (MoVE, Kimi variants, gpt-4o-audio-preview, SeamlessExpressive, SeamlessM4T-Large-v2, Cascaded) |
 
 ## Project Structure
 
@@ -60,11 +60,13 @@ No backend server is required.
 | Model | Type |
 |-------|------|
 | **MoVE (Ours)** | Mixture-of-LoRA-Experts on AudioLLM |
-| OpenAI | GPT-4o S2ST |
-| SeamlessM4T | Meta's multilingual translation |
-| Kimi | Kimi Audio instruction-following |
+| Kimi + LoRA (SynStard 100h) | Kimi-Audio fine-tuned on SynStard 100h |
+| Kimi + LoRA (SeamlessAlign 67h) | Kimi-Audio fine-tuned on SeamlessAlign 67h |
+| Kimi-Audio-7B-Instruct | Base Kimi-Audio instruction model |
+| gpt-4o-audio-preview | OpenAI's GPT-4o audio preview |
+| SeamlessExpressive | Meta's expressive speech translation |
+| SeamlessM4T-Large-v2 | Meta's multilingual translation |
 | Cascaded | Traditional ASR + MT + TTS pipeline |
-| Expressive | Expressive speech baseline |
 
 ## Citation
 

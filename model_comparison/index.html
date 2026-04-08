@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MoVE — Model Comparison Demo</title>
+  <title>MoVE — Model Comparison</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,9 +17,8 @@
       --text-3: #8b8da3;
       --border: #e5e7eb;
       --accent: #4f46e5;
-      --accent-hover: #4338ca;
       --accent-light: #ede9fe;
-      --radius: 12px;
+      --radius: 10px;
     }
 
     body {
@@ -30,7 +29,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Nav ── */
     .back-nav {
       padding: 14px 28px;
       border-bottom: 1px solid var(--border);
@@ -44,12 +42,10 @@
     }
     .back-nav a:hover { color: var(--text); }
 
-    /* ── Header ── */
     .page-header {
-      max-width: 920px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 48px 28px 40px;
-      border-bottom: 1px solid var(--border);
+      padding: 48px 28px 36px;
     }
     .page-header h1 {
       font-size: 1.6rem;
@@ -60,18 +56,19 @@
       color: var(--text-2);
       font-size: 0.92rem;
       margin-top: 8px;
-      max-width: 560px;
+      max-width: 620px;
       line-height: 1.7;
     }
 
-    /* ── Emotion Tabs ── */
+    /* Tabs */
     .tabs-bar {
-      max-width: 920px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 20px 28px 0;
+      padding: 0 28px 24px;
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
     }
     .tab-btn {
       padding: 7px 18px;
@@ -86,137 +83,125 @@
       font-family: inherit;
     }
     .tab-btn:hover { color: var(--text); background: var(--bg-alt); }
-    .tab-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
+    .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* ── Content ── */
+    /* Main */
     .main-area {
-      max-width: 920px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 28px 64px;
+      padding: 28px 28px 80px;
     }
+    .loading { text-align: center; padding: 80px 0; color: var(--text-3); }
 
-    .loading { text-align: center; padding: 80px 0; color: var(--text-3); font-size: 0.9rem; }
-
-    /* ── Sample Group ── */
-    .sample-group {
-      margin-bottom: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+    /* ── Table ── */
+    .sample-section {
+      margin-bottom: 36px;
     }
-    .sample-group-header {
-      background: var(--bg-alt);
-      padding: 12px 20px;
-      font-size: 0.82rem;
+    .sample-label {
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--text-2);
-      border-bottom: 1px solid var(--border);
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px;
     }
-    .sample-group-header .emo-badge {
+    .sample-label .emo-tag {
       background: var(--accent-light);
       color: var(--accent);
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
       letter-spacing: 0.03em;
     }
 
-    /* ── Audio Row ── */
-    .audio-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 10px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.1s;
-    }
-    .audio-row:last-child { border-bottom: none; }
-    .audio-row:hover { background: var(--bg-alt); }
-    .audio-row.source-row { background: rgba(79,70,229,0.03); }
-    .audio-row.source-row:hover { background: rgba(79,70,229,0.06); }
-
-    .audio-row-label {
-      width: 150px;
-      flex-shrink: 0;
-    }
-    .audio-row-label .role {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-3);
-    }
-    .source-row .audio-row-label .role { color: var(--accent); }
-    .audio-row-label .name {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-top: 1px;
+    .audio-table-wrap {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    /* ── Player ── */
-    .player {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-    .play-btn {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: none;
-      background: var(--accent);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.15s;
-    }
-    .play-btn:hover { background: var(--accent-hover); transform: scale(1.05); }
-    .play-btn svg { width: 13px; height: 13px; fill: currentColor; }
-
-    .timeline-wrap { flex: 1; min-width: 0; }
-    .timeline {
+    .audio-table {
       width: 100%;
-      height: 4px;
-      background: var(--border);
-      border-radius: 2px;
-      position: relative;
-      cursor: pointer;
-    }
-    .timeline-progress {
-      position: absolute;
-      left: 0; top: 0;
-      height: 100%;
-      background: var(--accent);
-      border-radius: 2px;
-      width: 0%;
-      pointer-events: none;
+      border-collapse: collapse;
+      min-width: 1280px;
     }
 
-    .time-display {
+    .audio-table thead th {
+      background: var(--bg-alt);
+      padding: 12px 10px;
       font-size: 0.72rem;
-      color: var(--text-3);
-      font-variant-numeric: tabular-nums;
-      min-width: 34px;
-      text-align: right;
-      font-weight: 500;
-      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--text-2);
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      line-height: 1.35;
+      vertical-align: middle;
     }
 
-    /* ── Footer ── */
+    .audio-table thead th:last-child {
+      border-right: none;
+    }
+
+    .audio-table thead th:first-child {
+      text-align: left;
+      width: 60px;
+      min-width: 60px;
+    }
+
+    .audio-table thead th:nth-child(2) {
+      width: 150px;
+      min-width: 150px;
+    }
+
+    .audio-table thead th.ours {
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .audio-table tbody td {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .audio-table tbody td:last-child {
+      border-right: none;
+    }
+
+    .audio-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .audio-table tbody td:first-child {
+      text-align: left;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+
+    .audio-table tbody td.ours-col {
+      background: rgba(79, 70, 229, 0.04);
+    }
+
+    .audio-table audio {
+      width: 100%;
+      min-width: 130px;
+      max-width: 170px;
+      height: 32px;
+    }
+
+    /* Footer */
     footer {
       border-top: 1px solid var(--border);
       padding: 32px 0;
@@ -225,13 +210,8 @@
       font-size: 0.78rem;
     }
 
-    @media (max-width: 640px) {
-      .audio-row { flex-wrap: wrap; gap: 8px; }
-      .audio-row-label { width: 100%; }
-    }
-
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
@@ -246,7 +226,7 @@
 
   <header class="page-header">
     <h1 data-i18n="mc.title">Model Comparison</h1>
-    <p data-i18n="mc.desc">Listen and compare speech outputs from 7 different S2ST models across various emotion categories. Each group shows the source audio and corresponding translations.</p>
+    <p data-i18n="mc.desc">Listen and compare speech outputs from different S2ST models across various emotion categories. Each row shows the same source utterance translated by each model.</p>
   </header>
 
   <div class="tabs-bar" id="tabs"></div>
@@ -260,27 +240,19 @@
   </footer>
 
   <script>
-    const MODEL_NAMES = {
-      'gen_openai': 'OpenAI',
-      'gen_seamlessm4t': 'SeamlessM4T',
-      'gen_cascaded': 'Cascaded',
-      'gen_MoE_top5_attention': 'MoE (Top-5)',
-      'gen_ours_100hr': 'MoVE (Ours)',
-      'gen_kimi_instruct': 'Kimi',
-      'gen_expressive': 'Expressive'
-    };
-
-    const MODEL_ORDER = [
-      'gen_ours_100hr', 'gen_MoE_top5_attention', 'gen_openai',
-      'gen_seamlessm4t', 'gen_kimi_instruct', 'gen_cascaded', 'gen_expressive'
+    // Model display config — order matters (left to right in table)
+    const MODELS = [
+      { key: 'gen_MoE_top5_attention', name: 'MoVE (Ours)',                  ours: true },
+      { key: 'gen_SynStard',           name: 'Kimi + LoRA (SynStard 100h)' },
+      { key: 'gen_ExpressiveData',     name: 'Kimi + LoRA (SeamlessAlign 67h)' },
+      { key: 'gen_kimi_instruct',      name: 'Kimi-Audio-7B-Instruct' },
+      { key: 'gen_openai',             name: 'gpt-4o-audio-preview' },
+      { key: 'gen_expressive',         name: 'SeamlessExpressive' },
+      { key: 'gen_seamlessm4t',        name: 'SeamlessM4T-Large-v2' },
+      { key: 'gen_cascaded',           name: 'Cascaded' },
     ];
 
     let grouped = {};
-    let currentAudio = null;
-    let currentBtn = null;
-
-    const PLAY = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
-    const PAUSE = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
 
     document.addEventListener('DOMContentLoaded', async () => {
       try {
@@ -321,95 +293,90 @@
     }
 
     function selectEmotion(emo) {
-      if (currentAudio) { currentAudio.pause(); currentAudio = null; }
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.textContent === emo));
+      document.querySelectorAll('.tab-btn').forEach(b =>
+        b.classList.toggle('active', b.textContent === emo));
 
       const content = document.getElementById('content');
       content.innerHTML = '';
 
       const srcLabel = window.i18n?.t('mc.source') || 'Source';
-      const mdlLabel = window.i18n?.t('mc.model') || 'Model';
       const smpLabel = window.i18n?.t('mc.sample') || 'Sample';
 
-      (grouped[emo] || []).forEach((set, idx) => {
-        const group = document.createElement('div');
-        group.className = 'sample-group';
-        group.style.animation = `fadeIn 0.3s ease ${idx * 0.04}s both`;
+      const sets = grouped[emo] || [];
 
-        const header = document.createElement('div');
-        header.className = 'sample-group-header';
-        header.innerHTML = `<span>${smpLabel} ${idx + 1}</span><span class="emo-badge">${set.emotion}</span>`;
-        group.appendChild(header);
+      sets.forEach((set, idx) => {
+        const section = document.createElement('div');
+        section.className = 'sample-section';
+        section.style.animation = `fadeIn 0.3s ease ${idx * 0.04}s both`;
 
-        const body = document.createElement('div');
-        body.className = 'sample-group-body';
+        // Label
+        section.innerHTML = `
+          <div class="sample-label">
+            ${smpLabel} ${idx + 1}
+            <span class="emo-tag">${set.emotion}</span>
+          </div>
+        `;
 
-        if (set.source) body.appendChild(makeRow(srcLabel, srcLabel, set.source, true));
+        // Table wrapper
+        const wrap = document.createElement('div');
+        wrap.className = 'audio-table-wrap';
 
-        const keys = Object.keys(set.models).sort((a, b) => {
-          const ia = MODEL_ORDER.indexOf(a), ib = MODEL_ORDER.indexOf(b);
-          return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+        const table = document.createElement('table');
+        table.className = 'audio-table';
+
+        // Thead
+        const thead = document.createElement('thead');
+        let headerHtml = `<tr><th></th><th>${srcLabel}</th>`;
+        MODELS.forEach(m => {
+          headerHtml += `<th class="${m.ours ? 'ours' : ''}">${m.name}</th>`;
         });
-        keys.forEach(k => {
-          const name = MODEL_NAMES[k] || k.replace(/^gen_/, '').replace(/_/g, ' ');
-          body.appendChild(makeRow(mdlLabel, name, set.models[k], false));
-        });
+        headerHtml += '</tr>';
+        thead.innerHTML = headerHtml;
+        table.appendChild(thead);
 
-        group.appendChild(body);
-        content.appendChild(group);
-      });
-    }
+        // Tbody — one row per sample
+        const tbody = document.createElement('tbody');
+        const row = document.createElement('tr');
 
-    function makeRow(role, name, url, isSource) {
-      const row = document.createElement('div');
-      row.className = 'audio-row' + (isSource ? ' source-row' : '');
-      row.innerHTML = `
-        <div class="audio-row-label">
-          <div class="role">${role}</div>
-          <div class="name">${name}</div>
-        </div>
-        <div class="player">
-          <button class="play-btn"><svg viewBox="0 0 24 24">${PLAY}</svg></button>
-          <div class="timeline-wrap"><div class="timeline"><div class="timeline-progress"></div></div></div>
-          <div class="time-display">0:00</div>
-        </div>`;
-      wire(row, url);
-      return row;
-    }
+        // Row label
+        row.innerHTML = `<td>#${idx + 1}</td>`;
 
-    function wire(row, url) {
-      const audio = new Audio(url);
-      const btn = row.querySelector('.play-btn');
-      const svg = btn.querySelector('svg');
-      const tl = row.querySelector('.timeline');
-      const prog = row.querySelector('.timeline-progress');
-      const td = row.querySelector('.time-display');
-
-      const fmt = t => isNaN(t) ? '0:00' : `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
-
-      audio.addEventListener('loadedmetadata', () => td.textContent = fmt(audio.duration));
-      audio.addEventListener('timeupdate', () => {
-        prog.style.width = `${(audio.currentTime / audio.duration) * 100}%`;
-        td.textContent = fmt(audio.currentTime);
-      });
-
-      btn.addEventListener('click', () => {
-        if (audio.paused) {
-          if (currentAudio && currentAudio !== audio) { currentAudio.pause(); if (currentBtn) currentBtn.innerHTML = PLAY; }
-          audio.play().catch(() => {});
-          svg.innerHTML = PAUSE;
-          currentAudio = audio; currentBtn = svg;
+        // Source cell
+        const srcTd = document.createElement('td');
+        if (set.source) {
+          srcTd.appendChild(makeAudio(set.source));
         } else {
-          audio.pause(); svg.innerHTML = PLAY;
-          currentAudio = null; currentBtn = null;
+          srcTd.textContent = '—';
         }
-      });
+        row.appendChild(srcTd);
 
-      audio.addEventListener('ended', () => { svg.innerHTML = PLAY; prog.style.width = '100%'; currentAudio = null; currentBtn = null; });
+        // Model cells
+        MODELS.forEach(m => {
+          const td = document.createElement('td');
+          if (m.ours) td.className = 'ours-col';
+          const url = set.models[m.key];
+          if (url) {
+            td.appendChild(makeAudio(url));
+          } else {
+            td.textContent = '—';
+          }
+          row.appendChild(td);
+        });
 
-      tl.addEventListener('click', e => {
-        if (audio.duration) audio.currentTime = ((e.clientX - tl.getBoundingClientRect().left) / tl.offsetWidth) * audio.duration;
+        tbody.appendChild(row);
+        table.appendChild(tbody);
+        wrap.appendChild(table);
+        section.appendChild(wrap);
+        content.appendChild(section);
       });
+    }
+
+    function makeAudio(url) {
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.preload = 'none';
+      audio.src = url;
+      return audio;
     }
   </script>
 
