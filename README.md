@@ -20,6 +20,7 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 |------|-------------|
 | [MoVE Dataset](https://47zzz.github.io/MoVE/MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
 | [Model Comparison](https://47zzz.github.io/MoVE/model_comparison/) | Listen and compare 8 S2ST models side-by-side (MoVE, Kimi variants, gpt-4o-audio-preview, SeamlessExpressive, SeamlessM4T-Large-v2, Cascaded) |
+| [Code (training & inference)](https://github.com/47zzz/MoVE-code) | LoRA / xLoRA training pipeline, inference scripts, and Dockerfile |
 
 ## Project Structure
 
@@ -83,3 +84,10 @@ No backend server is required.
 ## License
 
 Dataset and code are released for research purposes. Full license details will be provided upon paper acceptance.
+
+The training/inference pipeline ([MoVE-code](https://github.com/47zzz/MoVE-code))
+relies on the GLM-4-Voice flow decoder. Per the glm-4-voice License,
+academic use is free; commercial use requires registration at
+<https://open.bigmodel.cn/mla/form>.
+
+> *Built with glm-4.*

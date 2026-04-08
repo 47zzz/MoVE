@@ -34,6 +34,10 @@
       en: 'Model Demo',
       zh: '模型展示'
     },
+    'btn.code': {
+      en: 'Code',
+      zh: '程式碼'
+    },
     'stat.nv': { en: 'NV Preservation', zh: '非語言保留率' },
     'stat.dataset': { en: 'Dataset Scale', zh: '資料集規模' },
     'stat.finetune': { en: 'Min. Fine-tune Data', zh: '最少微調資料' },

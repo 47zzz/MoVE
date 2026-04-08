@@ -13,6 +13,12 @@ venv/
 # Paper PDF (don't commit to demo repo)
 *.pdf
 
+# Training/inference code lives in a separate repo (47zzz/MoVE-code)
+kimi-audio-release/
+
+# Local backup
+s2st_backup/
+
 # Dev / server files
 model_comparison/server.py
 model_comparison/requirements.txt
