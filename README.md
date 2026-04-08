@@ -1,6 +1,12 @@
 # MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation
 
+[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b)](#)
+[![Demo](https://img.shields.io/badge/Demo-Live-4f46e5)](https://47zzz.github.io/MoVE/)
+[![Code](https://img.shields.io/badge/Code-GitHub-181717)](https://github.com/47zzz/MoVE-code)
+
 > **Interspeech 2026** (Under Review)
+>
+> 📄 **Paper:** *Coming soon* — link will be updated after paper release.
 
 Recent Speech-to-Speech Translation (S2ST) systems achieve strong semantic accuracy yet consistently strip away non-verbal vocalizations (NVs) such as laughter and crying. **MoVE** addresses this via:
 
@@ -9,6 +15,11 @@ Recent Speech-to-Speech Translation (S2ST) systems achieve strong semantic accur
 3. **AudioLLM Data Efficiency** -- 30 minutes of curated data is enough for strong expressive S2ST performance.
 
 MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-rated naturalness** among all compared systems (existing S2ST systems preserve at most 14% of NVs).
+
+> 💻 **Looking for the training & inference code?** It lives in a separate
+> repository: **[47zzz/MoVE-code](https://github.com/47zzz/MoVE-code)** —
+> LoRA / xLoRA fine-tuning of Kimi-Audio, single-sample inference scripts,
+> and a Dockerfile reproducing the runtime.
 
 ---
 
