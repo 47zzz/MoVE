@@ -16,11 +16,6 @@ Recent Speech-to-Speech Translation (S2ST) systems achieve strong semantic accur
 
 MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-rated naturalness** among all compared systems (existing S2ST systems preserve at most 14% of NVs).
 
-> 💻 **Looking for the training & inference code?** It lives in a separate
-> repository: **[47zzz/MoVE-code](https://github.com/47zzz/MoVE-code)** —
-> LoRA / xLoRA fine-tuning of Kimi-Audio, single-sample inference scripts,
-> and a Dockerfile reproducing the runtime.
-
 ---
 
 ## Demo
