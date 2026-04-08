@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/tmp"
+    ],
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8893/_layout_preview.html)"
+    ]
+  }
+}

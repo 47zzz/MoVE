@@ -121,82 +121,76 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow-x: auto;
+      overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
+      position: relative;
     }
 
     .audio-table {
+      border-collapse: separate;     /* required for sticky borders */
+      border-spacing: 0;
       width: 100%;
-      border-collapse: collapse;
-      min-width: 1280px;
+      min-width: 1100px;
+    }
+
+    .audio-table th,
+    .audio-table td {
+      padding: 12px 14px;
+      text-align: center;
+      vertical-align: middle;
+      background: var(--bg);          /* solid bg for sticky cells */
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
     }
 
     .audio-table thead th {
       background: var(--bg-alt);
-      padding: 12px 10px;
       font-size: 0.72rem;
       font-weight: 700;
       color: var(--text-2);
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 2;
       line-height: 1.35;
-      vertical-align: middle;
+      white-space: nowrap;
     }
 
-    .audio-table thead th:last-child {
+    /* Last column — kill right border */
+    .audio-table th:last-child,
+    .audio-table td:last-child {
       border-right: none;
     }
-
-    .audio-table thead th:first-child {
-      text-align: left;
-      width: 60px;
-      min-width: 60px;
-    }
-
-    .audio-table thead th:nth-child(2) {
-      width: 150px;
-      min-width: 150px;
-    }
-
-    .audio-table thead th.ours {
-      background: var(--accent-light);
-      color: var(--accent);
-    }
-
-    .audio-table tbody td {
-      padding: 12px 10px;
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    .audio-table tbody td:last-child {
-      border-right: none;
-    }
-
+    /* Last row — kill bottom border */
     .audio-table tbody tr:last-child td {
       border-bottom: none;
     }
 
-    .audio-table tbody td:first-child {
-      text-align: left;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--text-3);
-      white-space: nowrap;
+    /* ── Sticky LEFT column (Source) ── */
+    .sticky-left {
+      position: sticky;
+      left: 0;
+      z-index: 3;
+      box-shadow: 6px 0 10px -6px rgba(0,0,0,0.08);
+    }
+    th.sticky-left { z-index: 4; }
+
+    /* ── Sticky RIGHT column (MoVE Ours) ── */
+    .sticky-right {
+      position: sticky;
+      right: 0;
+      z-index: 3;
+      background: var(--accent-light) !important;
+      box-shadow: -6px 0 10px -6px rgba(0,0,0,0.08);
+    }
+    th.sticky-right {
+      z-index: 4;
+      color: var(--accent);
     }
 
-    .audio-table tbody td.ours-col {
-      background: rgba(79, 70, 229, 0.04);
-    }
+    /* Column widths */
+    .col-src  { width: 170px; min-width: 170px; }
+    .col-ours { width: 170px; min-width: 170px; }
 
     .audio-table audio {
       width: 100%;
-      min-width: 130px;
+      min-width: 140px;
       max-width: 170px;
       height: 32px;
     }
@@ -304,6 +298,10 @@
 
       const sets = grouped[emo] || [];
 
+      // Split into pinned (ours) and scrollable (others)
+      const oursModel = MODELS.find(m => m.ours);
+      const otherModels = MODELS.filter(m => !m.ours);
+
       sets.forEach((set, idx) => {
         const section = document.createElement('div');
         section.className = 'sample-section';
@@ -324,25 +322,26 @@
         const table = document.createElement('table');
         table.className = 'audio-table';
 
-        // Thead
+        // ── Thead ──
         const thead = document.createElement('thead');
-        let headerHtml = `<tr><th></th><th>${srcLabel}</th>`;
-        MODELS.forEach(m => {
-          headerHtml += `<th class="${m.ours ? 'ours' : ''}">${m.name}</th>`;
+        let headerHtml = `<tr><th class="sticky-left col-src">${srcLabel}</th>`;
+        otherModels.forEach(m => {
+          headerHtml += `<th>${m.name}</th>`;
         });
+        if (oursModel) {
+          headerHtml += `<th class="sticky-right col-ours">${oursModel.name}</th>`;
+        }
         headerHtml += '</tr>';
         thead.innerHTML = headerHtml;
         table.appendChild(thead);
 
-        // Tbody — one row per sample
+        // ── Tbody ──
         const tbody = document.createElement('tbody');
         const row = document.createElement('tr');
 
-        // Row label
-        row.innerHTML = `<td>#${idx + 1}</td>`;
-
-        // Source cell
+        // Source cell (sticky left)
         const srcTd = document.createElement('td');
+        srcTd.className = 'sticky-left col-src';
         if (set.source) {
           srcTd.appendChild(makeAudio(set.source));
         } else {
@@ -350,10 +349,9 @@
         }
         row.appendChild(srcTd);
 
-        // Model cells
-        MODELS.forEach(m => {
+        // Other model cells (scrollable)
+        otherModels.forEach(m => {
           const td = document.createElement('td');
-          if (m.ours) td.className = 'ours-col';
           const url = set.models[m.key];
           if (url) {
             td.appendChild(makeAudio(url));
@@ -362,6 +360,19 @@
           }
           row.appendChild(td);
         });
+
+        // MoVE (Ours) cell (sticky right)
+        if (oursModel) {
+          const oursTd = document.createElement('td');
+          oursTd.className = 'sticky-right col-ours';
+          const url = set.models[oursModel.key];
+          if (url) {
+            oursTd.appendChild(makeAudio(url));
+          } else {
+            oursTd.textContent = '—';
+          }
+          row.appendChild(oursTd);
+        }
 
         tbody.appendChild(row);
         table.appendChild(tbody);
