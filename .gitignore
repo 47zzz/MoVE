@@ -31,3 +31,4 @@ model_comparison/static/demo.html
 model_comparison/static/demo.js
 model_comparison/static/style.css
 MoVE_dataset_demo/sample_demo.py
+.claude/
