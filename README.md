@@ -52,16 +52,6 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 └── README.md
 ```
 
-## Hosting
-
-This project is fully static and can be hosted on **GitHub Pages** directly:
-
-1. Push this repo to GitHub
-2. Go to **Settings > Pages > Source** and select the branch/root
-3. The site will be available at `https://<username>.github.io/<repo-name>/`
-
-No backend server is required.
-
 ## Models Compared
 
 | Model | Type |
