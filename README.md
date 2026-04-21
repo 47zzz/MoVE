@@ -1,12 +1,12 @@
 # MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation
 
-[![Paper](https://img.shields.io/badge/Paper-Coming%20Soon-b31b1b)](#)
+[![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](https://arxiv.org/pdf/2604.17435)
 [![Demo](https://img.shields.io/badge/Demo-Live-4f46e5)](https://47zzz.github.io/MoVE/)
 [![Code](https://img.shields.io/badge/Code-GitHub-181717)](https://github.com/47zzz/MoVE-code)
 
 > **Interspeech 2026** (Under Review)
 >
-> 📄 **Paper:** *Coming soon* — link will be updated after paper release.
+> 📄 **Paper:** https://arxiv.org/pdf/2604.17435
 
 Recent Speech-to-Speech Translation (S2ST) systems achieve strong semantic accuracy yet consistently strip away non-verbal vocalizations (NVs) such as laughter and crying. **MoVE** addresses this via:
 
