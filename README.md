@@ -67,13 +67,20 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 
 ## Citation
 
+Paper: <https://arxiv.org/pdf/2604.17435>
+
 ```bibtex
-@article{anonymous2026move,
-  title   = {MoVE: Translating Laughter and Tears via Mixture
-             of Vocalization Experts in Speech-to-Speech Translation},
-  author  = {Anonymous},
-  journal = {Interspeech 2026 (Under Review)},
-  year    = {2026}
+@article{chen2026move,
+  title         = {MoVE: Translating Laughter and Tears via Mixture
+                   of Vocalization Experts in Speech-to-Speech Translation},
+  author        = {Chen, Szu-Chi and Tsai, I-Ning and Lin, Yi-Cheng and
+                   Huang, Sung-Feng and Lee, Hung-yi},
+  journal       = {arXiv preprint arXiv:2604.17435},
+  year          = {2026},
+  eprint        = {2604.17435},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2604.17435}
 }
 ```
 

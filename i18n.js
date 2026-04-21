@@ -19,12 +19,12 @@
       zh: '一個混合 LoRA 專家架構（Mixture-of-LoRA-Experts），在語音到語音翻譯中保留非語言發聲（笑聲、哭聲等），並具備卓越的資料效率。'
     },
     'hero.authors': {
-      en: 'Anonymous Submission',
-      zh: '匿名投稿'
+      en: 'Szu-Chi Chen, I-Ning Tsai, Yi-Cheng Lin, Sung-Feng Huang, Hung-yi Lee',
+      zh: 'Szu-Chi Chen, I-Ning Tsai, Yi-Cheng Lin, Sung-Feng Huang, Hung-yi Lee'
     },
     'btn.paper': {
-      en: 'Paper (Coming Soon)',
-      zh: '論文（即將公開）'
+      en: 'Paper (arXiv)',
+      zh: '論文（arXiv）'
     },
     'btn.dataset': {
       en: 'Dataset',
@@ -107,8 +107,8 @@
     'cite.title': { en: 'Cite Our Work', zh: '引用我們的研究' },
     'cite.desc': { en: 'If you find our work useful, please consider citing:', zh: '如果您覺得我們的研究有用，請考慮引用：' },
     'footer.text': {
-      en: 'MoVE \u2014 Anonymous Submission \u00b7 Interspeech 2026',
-      zh: 'MoVE \u2014 匿名投稿 \u00b7 Interspeech 2026'
+      en: 'MoVE \u2014 Chen et al. \u00b7 Interspeech 2026 (Under Review)',
+      zh: 'MoVE \u2014 Chen et al. \u00b7 Interspeech 2026 (Under Review)'
     },
 
     // ─── Dataset Demo ──────────────────────────────────────────
@@ -168,7 +168,7 @@
     },
     'ds.cite.title': { en: 'Citation', zh: '引用' },
     'ds.cite.desc': { en: 'If you use this dataset in your research, please cite our paper:', zh: '如果您在研究中使用此資料集，請引用我們的論文：' },
-    'ds.footer': { en: 'MoVE Dataset \u2014 Anonymous Submission \u00b7 2026', zh: 'MoVE 資料集 \u2014 匿名投稿 \u00b7 2026' },
+    'ds.footer': { en: 'MoVE Dataset \u2014 Chen et al. \u00b7 2026', zh: 'MoVE 資料集 \u2014 Chen et al. \u00b7 2026' },
 
     // ─── Model Comparison ────────────────────────────────────────
     'mc.title': { en: 'Model Comparison', zh: '模型效果比較' },
