@@ -27,6 +27,7 @@ MoVE reproduces target NVs in **76%** of cases and achieves the **highest human-
 | [MoVE Dataset](https://47zzz.github.io/MoVE/MoVE_dataset_demo/) | Browse bilingual audio samples across 5 emotion categories with waveform visualization |
 | [Model Comparison](https://47zzz.github.io/MoVE/model_comparison/) | Listen and compare 8 S2ST models side-by-side (MoVE, Kimi variants, gpt-4o-audio-preview, SeamlessExpressive, SeamlessM4T-Large-v2, Cascaded) |
 | [Code (training & inference)](https://github.com/47zzz/MoVE-code) | LoRA / xLoRA training pipeline, inference scripts, and Dockerfile |
+| [Data Pipeline](https://github.com/47zzz/MoVE-data-pipeline) | Scripts for generating the bilingual expressive speech dataset |
 
 ## Project Structure
 
