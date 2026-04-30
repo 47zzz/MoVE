@@ -28,19 +28,19 @@
     },
     'btn.dataset': {
       en: 'Dataset',
-      zh: '資料集'
+      zh: '資料集下載'
     },
     'btn.demo': {
-      en: 'Model Demo',
-      zh: '模型展示'
+      en: 'Audio Demo',
+      zh: '音訊展示'
+    },
+    'btn.samples': {
+      en: 'Dataset Samples',
+      zh: '資料集樣本'
     },
     'btn.code': {
       en: 'Code',
       zh: '程式碼'
-    },
-    'btn.hf': {
-      en: 'HuggingFace',
-      zh: 'HuggingFace'
     },
     'btn.pipeline': {
       en: 'Data Pipeline',
