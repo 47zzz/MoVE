@@ -440,10 +440,15 @@
 <body>
 
   <!-- Nav -->
-  <nav style="padding: 14px 28px; border-bottom: 1px solid var(--border);">
+  <nav style="padding: 14px 28px; border-bottom: 1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
     <a href="../" style="color: var(--text-muted); text-decoration: none; font-size: 0.84rem; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; transition: color 0.15s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">
       <span data-i18n="nav.back">&larr; Back to Home</span>
     </a>
+    <div style="display:flex; gap:20px; align-items:center;">
+      <a href="https://arxiv.org/abs/2604.17435" target="_blank" rel="noopener" style="color:var(--text-muted); text-decoration:none; font-size:0.84rem; font-weight:500; transition:color 0.15s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">Paper</a>
+      <a href="https://huggingface.co/datasets/47z/MoVE" target="_blank" rel="noopener" style="color:var(--text-muted); text-decoration:none; font-size:0.84rem; font-weight:500; transition:color 0.15s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">HuggingFace</a>
+      <a href="https://github.com/47zzz/MoVE-code" target="_blank" rel="noopener" style="color:var(--text-muted); text-decoration:none; font-size:0.84rem; font-weight:500; transition:color 0.15s;" onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='var(--text-muted)'">Code</a>
+    </div>
   </nav>
 
   <!-- Hero -->
@@ -451,18 +456,24 @@
     <h1 data-i18n="ds.title">MoVE Dataset</h1>
     <p class="subtitle" data-i18n-html="ds.subtitle">
       A large-scale bilingual (Chinese ↔ English) expressive speech-to-speech translation dataset spanning
-      <strong>~1,000 hours</strong> and <strong>~900k parallel pairs</strong>, presented in our paper:<br />
+      <strong>~1,000 hours</strong> and <strong>858,312 parallel pairs</strong>, presented in our paper:<br />
       <em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in
         Speech-to-Speech Translation</em>
     </p>
     <div class="badge-row">
       <span class="badge">🎙️ ~1,000 Hours</span>
-      <span class="badge">🔢 ~900k Pairs</span>
+      <span class="badge">🔢 858,312 Pairs</span>
       <span class="badge">🌏 Chinese ↔ English</span>
       <span class="badge">🎭 5 Emotions</span>
       <span class="badge">📝 Parallel Text</span>
     </div>
-    <div style="margin-top:20px;">
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <a href="https://huggingface.co/datasets/47z/MoVE" target="_blank" rel="noopener"
+        style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#ff9d00;color:#fff;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;"
+        onmouseover="this.style.opacity='0.82'" onmouseout="this.style.opacity='1'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        Dataset on HuggingFace
+      </a>
       <a href="https://github.com/47zzz/MoVE-data-pipeline" target="_blank" rel="noopener"
         style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:#1d1d2c;color:#fff;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:opacity 0.15s;"
         onmouseover="this.style.opacity='0.82'" onmouseout="this.style.opacity='1'">
@@ -490,7 +501,7 @@
           <div class="label" data-i18n="ds.stat.hours">Total Hours</div>
         </div>
         <div class="overview-card">
-          <div class="value">~900k</div>
+          <div class="value">858,312</div>
           <div class="label" data-i18n="ds.stat.pairs">Parallel Pairs</div>
         </div>
         <div class="overview-card">

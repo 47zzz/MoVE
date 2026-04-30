@@ -38,6 +38,14 @@
       en: 'Code',
       zh: '程式碼'
     },
+    'btn.hf': {
+      en: 'HuggingFace',
+      zh: 'HuggingFace'
+    },
+    'btn.pipeline': {
+      en: 'Data Pipeline',
+      zh: '資料生成'
+    },
     'stat.nv': { en: 'NV Preservation', zh: '非語言保留率' },
     'stat.dataset': { en: 'Dataset Scale', zh: '資料集規模' },
     'stat.finetune': { en: 'Min. Fine-tune Data', zh: '最少微調資料' },
@@ -114,8 +122,8 @@
     // ─── Dataset Demo ──────────────────────────────────────────
     'ds.title': { en: 'MoVE Dataset', zh: 'MoVE 資料集' },
     'ds.subtitle': {
-      en: 'A large-scale bilingual (Chinese \u2194 English) expressive speech-to-speech translation dataset spanning <strong>~1,000 hours</strong> and <strong>~900k parallel pairs</strong>, presented in our paper:<br/><em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation</em>',
-      zh: '一個大規模雙語（中文 \u2194 英文）表達性語音到語音翻譯資料集，涵蓋<strong>約 1,000 小時</strong>和<strong>約 90 萬筆平行語料</strong>，發表於我們的論文：<br/><em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation</em>'
+      en: 'A large-scale bilingual (Chinese \u2194 English) expressive speech-to-speech translation dataset spanning <strong>~1,000 hours</strong> and <strong>858,312 parallel pairs</strong>, presented in our paper:<br/><em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation</em>',
+      zh: '一個大規模雙語（中文 \u2194 英文）表達性語音到語音翻譯資料集，涵蓋<strong>約 1,000 小時</strong>和<strong>858,312 筆平行語料</strong>，發表於我們的論文：<br/><em style="font-size:0.9em;">MoVE: Translating Laughter and Tears via Mixture of Vocalization Experts in Speech-to-Speech Translation</em>'
     },
     'ds.overview.title': { en: 'Dataset Overview', zh: '資料集概覽' },
     'ds.overview.desc': {

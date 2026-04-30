@@ -3,10 +3,24 @@
 [![Paper](https://img.shields.io/badge/Paper-arXiv-b31b1b)](https://arxiv.org/pdf/2604.17435)
 [![Demo](https://img.shields.io/badge/Demo-Live-4f46e5)](https://47zzz.github.io/MoVE/)
 [![Code](https://img.shields.io/badge/Code-GitHub-181717)](https://github.com/47zzz/MoVE-code)
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-ff9d00)](https://huggingface.co/datasets/47z/MoVE)
+[![Pipeline](https://img.shields.io/badge/Pipeline-GitHub-181717)](https://github.com/47zzz/MoVE-data-pipeline)
 
 > **Interspeech 2026** (Under Review)
 >
 > 📄 **Paper:** https://arxiv.org/pdf/2604.17435
+
+## Resources
+
+| | Link |
+|---|---|
+| 📄 Paper | https://arxiv.org/abs/2604.17435 |
+| 🌐 Project Page | https://47zzz.github.io/MoVE/ |
+| 🎵 Dataset Demo | https://47zzz.github.io/MoVE/MoVE_dataset_demo/ |
+| 🔊 Model Comparison | https://47zzz.github.io/MoVE/model_comparison/ |
+| 🤗 Dataset (HuggingFace) | https://huggingface.co/datasets/47z/MoVE |
+| 💻 Model Code | https://github.com/47zzz/MoVE-code |
+| 🗂️ Data Pipeline | https://github.com/47zzz/MoVE-data-pipeline |
 
 Recent Speech-to-Speech Translation (S2ST) systems achieve strong semantic accuracy yet consistently strip away non-verbal vocalizations (NVs) such as laughter and crying. **MoVE** addresses this via:
 

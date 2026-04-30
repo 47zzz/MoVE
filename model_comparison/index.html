@@ -32,6 +32,11 @@
     .back-nav {
       padding: 14px 28px;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .back-nav a {
       color: var(--text-3);
@@ -41,6 +46,7 @@
       transition: color 0.15s;
     }
     .back-nav a:hover { color: var(--text); }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
 
     .page-header {
       max-width: 1100px;
@@ -216,6 +222,11 @@
 
   <nav class="back-nav">
     <a href="../"><span data-i18n="nav.back">&larr; Back to Home</span></a>
+    <div class="nav-links">
+      <a href="https://arxiv.org/abs/2604.17435" target="_blank" rel="noopener">Paper</a>
+      <a href="https://huggingface.co/datasets/47z/MoVE" target="_blank" rel="noopener">HuggingFace</a>
+      <a href="https://github.com/47zzz/MoVE-code" target="_blank" rel="noopener">Code</a>
+    </div>
   </nav>
 
   <header class="page-header">
