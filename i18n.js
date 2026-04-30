@@ -27,16 +27,16 @@
       zh: '論文（arXiv）'
     },
     'btn.dataset': {
-      en: 'Dataset',
-      zh: '資料集下載'
+      en: 'Dataset Demo',
+      zh: '資料集展示'
     },
     'btn.demo': {
       en: 'Audio Demo',
       zh: '音訊展示'
     },
     'btn.samples': {
-      en: 'Dataset Samples',
-      zh: '資料集樣本'
+      en: 'Download Dataset',
+      zh: '資料集下載'
     },
     'btn.code': {
       en: 'Code',
